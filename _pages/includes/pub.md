@@ -17,6 +17,21 @@ IEEE/ACM International Symposium on Quality of Service (**IWQoS**) , 2024. (CCF-
 </div>
 
 
+<div class='paper-box'><div class='paper-box-image'><div><img src='resources/ITSVA.png' alt="sym" width="300px" height="200px"></div></div>
+<div class='paper-box-text' style="font-size: larger;" markdown="1">
+
+
+[**ITSVA: Toward 6G-Enabled Vision Analytics over Integrated Terrestrial-Satellite Network**](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10488337)
+
+Zhang, Miao, **Jiaxing Li**, Jianxin Shi, Yifei Zhu, Lei Zhang, and Hengzhi Wang \\
+IEEE International Conference on Satellite Computing, 2023.
+
+--[**Paper**](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10488337)
+
+</div>
+</div>
+
+
 <div class='paper-box'><div class='paper-box-image'><div><img src='resources/pH_strips.jpeg' alt="sym" width="300px" height="200px"></div></div>
 <div class='paper-box-text' style="font-size: larger;" markdown="1">
 
