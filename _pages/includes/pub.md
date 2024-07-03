@@ -2,7 +2,7 @@
 # Publications 
 <!-- ## 🎙 Speech Synthesis -->
 
-<div class='paper-box'><div class='paper-box-image'><div><img src='../../images/SCALM.png' alt="sym" width="100%" height="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><img src='images/SCALM.png' alt="sym" width="100%" height="100%"></div></div>
 <div class='paper-box-text' style="font-size: larger;" markdown="1">
 
 
@@ -11,13 +11,13 @@
 **Jiaxing Li**, Chi Xu, Feng Wang, Isaac M. von Riedemann, Cong Zhang, and Jiangchuan Liu \\
 IEEE/ACM International Symposium on Quality of Service (**IWQoS**) , 2024. (CCF-B)
 
-[**Paper**](https://arxiv.org/pdf/2406.00025) [**Slide**](../../images/SCALM_presentation.pdf) 
+[**Paper**](https://arxiv.org/pdf/2406.00025)      [**Slide**](images/SCALM_presentation.pdf) 
 
 </div>
 </div>
 
 
-<div class='paper-box'><div class='paper-box-image'><div><img src='../../images/pH_strips.jpeg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><img src='images/pH_strips.jpeg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' style="font-size: larger;" markdown="1">
 
 [**Mobile App to Quantify pH Strips and Monitor Titrations: Smartphone-Aided Chemical Education and Classroom Demonstrations**](https://pubs.acs.org/doi/epdf/10.1021/acs.jchemed.3c00227) 
