@@ -1,13 +1,7 @@
-# main links links
-<<<<<<< HEAD
-# main:
-#   - title: "About Me"
-#     url: "/#about-me"
-=======
+
 main:
-  # - title: "About Me"
-  #   url: "/#about-me"
->>>>>>> 45565fe984c98c014fd2dbd7fd74a1597312749f
+  - title: "CV"
+    url: ""
 
   # - title: "News"
   #   url: "/#-news"
