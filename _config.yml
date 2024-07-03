@@ -4,19 +4,19 @@
 # which you are expected to set up once and rarely need to edit after that.
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
-title                    : "Jingsheng Gao (高景盛)"
-description              : "Phd Candidate in Shanghai Jiao Tong University. Focusing on dialogue generation, multi-modal and large language models."
-repository               : "gaojingsheng/gaojingsheng.github.io"
+title                    : "Jiaxing (Marsh) Li"
+description              : "PhD Computer Science Student at Simon Fraser University."
+# repository               : ""
 
 author:
-  name             : "Jingsheng Gao (高景盛)"
-  avatar           : "images/life_gjs.jpg" # "images/bio-photo.jpeg"
+  name             : "Jiaxing (Marsh) Li"
+  avatar           : "images/jiaxingli.jpg"
   bio              : # "Shanghai Jiao Tong University"
-  location         : "Shanghai"
-  employer         :
+  location         : "Vancouver"
+  employer         : "Simon Fraser University"
   pubmed           : 
-  googlescholar    : 'https://scholar.google.com/citations?user=O4o2aQcAAAAJ&hl=en'
-  email            : "gaojingsheng@sjtu.edu.cn"
+  googlescholar    : "https://scholar.google.com/citations?user=z1lpmSoAAAAJ&hl=en"
+  email            : "jla641@sfu.ca"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -25,15 +25,15 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "gaojingsheng"
+  github           : 
   google_plus      :
   keybase          :
   instagram        :
-  impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
+  impactstory      :
   lastfm           :
-  linkedin         : # "rayeren"
-  dblp             : # "https://dblp.org/pid/75/6568-6.html"
-  orcid            : "https://orcid.org/my-orcid?orcid=0000-0001-6271-0903"
+  linkedin         : 
+  dblp             : 
+  orcid            : 
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
@@ -45,7 +45,7 @@ author:
   xing             :
   youtube          :
   wikipedia        :
-  zhihu            :  'https://www.zhihu.com/people/cautious-56'
+  zhihu            : 
   
 
 # Reading Files
