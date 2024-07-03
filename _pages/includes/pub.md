@@ -11,7 +11,7 @@
 **Jiaxing Li**, Chi Xu, Feng Wang, Isaac M. von Riedemann, Cong Zhang, and Jiangchuan Liu \\
 IEEE/ACM International Symposium on Quality of Service (**IWQoS**) , 2024. (CCF-B)
 
-[**Paper**](https://arxiv.org/pdf/2406.00025)  &nbsp  [**Slide**](resources/SCALM_presentation.pdf) 
+--[**Paper**](https://arxiv.org/pdf/2406.00025)  --[**Slide**](resources/SCALM_presentation.pdf) 
 
 </div>
 </div>
@@ -25,7 +25,7 @@ IEEE/ACM International Symposium on Quality of Service (**IWQoS**) , 2024. (CCF-
 **Jiaxing Li**, Marissa L. O’Neill, Connor Pattison, James HW Zhou, Joshua M. Ito, Calvin ST Wong, Hua-Zhong Yu, and Nabyl Merbouh \\
 Journal of Chemical Education, 2023.
 
-[**Paper**](https://pubs.acs.org/doi/epdf/10.1021/acs.jchemed.3c00227)
+--[**Paper**](https://pubs.acs.org/doi/epdf/10.1021/acs.jchemed.3c00227)
 
 </div>
 </div>
