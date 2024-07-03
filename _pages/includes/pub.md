@@ -2,7 +2,7 @@
 # Publications 
 <!-- ## 🎙 Speech Synthesis -->
 
-<div class='paper-box'><div class='paper-box-image'><div><img src='resources/SCALM.png' alt="sym" width="100%" height="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><img src='resources/SCALM.png' alt="sym" width="300px" height="200px"></div></div>
 <div class='paper-box-text' style="font-size: larger;" markdown="1">
 
 
@@ -17,7 +17,7 @@ IEEE/ACM International Symposium on Quality of Service (**IWQoS**) , 2024. (CCF-
 </div>
 
 
-<div class='paper-box'><div class='paper-box-image'><div><img src='resources/pH_strips.jpeg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><img src='resources/pH_strips.jpeg' alt="sym" width="300px" height="200px"></div></div>
 <div class='paper-box-text' style="font-size: larger;" markdown="1">
 
 [**Mobile App to Quantify pH Strips and Monitor Titrations: Smartphone-Aided Chemical Education and Classroom Demonstrations**](https://pubs.acs.org/doi/epdf/10.1021/acs.jchemed.3c00227) 
