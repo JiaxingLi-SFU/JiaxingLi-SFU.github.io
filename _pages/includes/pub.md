@@ -11,7 +11,7 @@
 **Jiaxing Li**, Chi Xu, Feng Wang, Isaac M. von Riedemann, Cong Zhang, and Jiangchuan Liu \\
 IEEE/ACM International Symposium on Quality of Service (**IWQoS**) , 2024. (CCF-B)
 
-[**Paper**](https://arxiv.org/pdf/2406.00025) \t [**Slide**](images/SCALM_presentation.pdf) 
+[**Paper**](https://arxiv.org/pdf/2406.00025)      [**Slide**](images/SCALM_presentation.pdf) 
 
 </div>
 </div>
