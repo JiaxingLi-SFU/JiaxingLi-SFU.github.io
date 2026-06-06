@@ -1,6 +1,6 @@
 # Jiaxing Li Personal Page
 
-Personal academic homepage for Jiaxing (Marsh) Li, built with the AcademicPages Jekyll template.
+Personal academic homepage for Jiaxing Li, built with the AcademicPages Jekyll template.
 
 ## Local Preview
 
