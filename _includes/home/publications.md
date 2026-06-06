@@ -4,5 +4,5 @@
 
 {% assign publications = site.publications | sort: "date" | reverse %}
 {% for post in publications %}
-  {% include publication-card.html post=post %}
+  {% include publication-card.html post=post show_image=true %}
 {% endfor %}

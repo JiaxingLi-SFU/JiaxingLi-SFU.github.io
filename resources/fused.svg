@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">FUSED topic card</title>
+  <desc id="desc">Federated multimodal retrieval across sovereign data domains.</desc>
+  <rect width="900" height="520" fill="#f7f9fb"/>
+  <rect x="50" y="55" width="220" height="150" rx="8" fill="#ffffff" stroke="#b9c7d3" stroke-width="3"/>
+  <rect x="50" y="315" width="220" height="150" rx="8" fill="#ffffff" stroke="#b9c7d3" stroke-width="3"/>
+  <rect x="630" y="55" width="220" height="150" rx="8" fill="#ffffff" stroke="#b9c7d3" stroke-width="3"/>
+  <rect x="630" y="315" width="220" height="150" rx="8" fill="#ffffff" stroke="#b9c7d3" stroke-width="3"/>
+  <circle cx="450" cy="260" r="92" fill="#ffffff" stroke="#24516f" stroke-width="5"/>
+  <path d="M270 130 C340 130 360 205 392 226" fill="none" stroke="#24516f" stroke-width="5"/>
+  <path d="M270 390 C340 390 360 315 392 294" fill="none" stroke="#24516f" stroke-width="5"/>
+  <path d="M630 130 C560 130 540 205 508 226" fill="none" stroke="#24516f" stroke-width="5"/>
+  <path d="M630 390 C560 390 540 315 508 294" fill="none" stroke="#24516f" stroke-width="5"/>
+  <text x="160" y="122" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#20313d">Domain A</text>
+  <text x="160" y="157" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#536878">private data</text>
+  <text x="160" y="382" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#20313d">Domain B</text>
+  <text x="160" y="417" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#536878">local index</text>
+  <text x="740" y="122" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#20313d">Domain C</text>
+  <text x="740" y="157" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#536878">multimodal</text>
+  <text x="740" y="382" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#20313d">Domain D</text>
+  <text x="740" y="417" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#536878">sovereign</text>
+  <text x="450" y="246" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#1d4058">FUSED</text>
+  <text x="450" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#536878">federated retrieval</text>
+</svg>

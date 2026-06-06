@@ -2,6 +2,7 @@
 
 # News
 
+- **2026**: Sustainable Intelligence for the Wild appeared as a HotCarbon 2026 extended abstract.
 - **2026**: FUSED appeared in the Web4Good Track at The Web Conference (WWW) 2026.
 - **2024**: StarStream appeared at ACM Multimedia 2024.
 - **2024**: SCALM appeared at IEEE/ACM IWQoS 2024.

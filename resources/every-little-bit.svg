@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Every Little Bit Helps topic card</title>
+  <desc id="desc">Semantic-aware tail label understanding framework.</desc>
+  <rect width="900" height="520" fill="#fbfaf6"/>
+  <rect x="70" y="70" width="760" height="360" rx="8" fill="#ffffff" stroke="#d7c9a8" stroke-width="3"/>
+  <line x1="135" y1="360" x2="780" y2="360" stroke="#59636b" stroke-width="4"/>
+  <line x1="135" y1="135" x2="135" y2="360" stroke="#59636b" stroke-width="4"/>
+  <rect x="190" y="170" width="62" height="190" fill="#79a7d3"/>
+  <rect x="290" y="210" width="62" height="150" fill="#79a7d3"/>
+  <rect x="390" y="250" width="62" height="110" fill="#79a7d3"/>
+  <rect x="500" y="308" width="44" height="52" fill="#d58c72"/>
+  <rect x="570" y="322" width="44" height="38" fill="#d58c72"/>
+  <rect x="640" y="338" width="44" height="22" fill="#d58c72"/>
+  <rect x="710" y="345" width="44" height="15" fill="#d58c72"/>
+  <path d="M482 122 C575 120 640 138 735 212" fill="none" stroke="#24516f" stroke-width="5" stroke-dasharray="12 10"/>
+  <text x="610" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#20313d">Tail labels</text>
+  <text x="612" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#536878">semantic understanding</text>
+  <text x="450" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#20313d">Every Little Bit Helps</text>
+</svg>
