@@ -1,0 +1,29 @@
+{% assign pub = include.post %}
+
+<div class="publication-entry">
+  <h3 class="publication-title">
+    <a href="{{ pub.url | relative_url }}">{{ pub.title }}</a>
+  </h3>
+
+  {% if pub.authors %}
+    <p class="publication-authors">{{ pub.authors | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+  {% endif %}
+
+  <p class="publication-venue">
+    {% if pub.venue %}<em>{{ pub.venue }}</em>{% endif %}{% if pub.date %}, {{ pub.date | date: "%Y" }}{% endif %}{% if pub.note %}. {{ pub.note }}{% endif %}
+  </p>
+
+  {% if pub.excerpt %}
+    <p class="publication-excerpt">{{ pub.excerpt }}</p>
+  {% endif %}
+
+  <p class="publication-links">
+    {% if pub.paperurl %}<a href="{{ pub.paperurl }}">Paper</a>{% endif %}
+    {% if pub.pdfurl %}<a href="{{ pub.pdfurl }}">PDF</a>{% endif %}
+    {% if pub.arxivurl %}<a href="{{ pub.arxivurl }}">arXiv</a>{% endif %}
+    {% if pub.slidesurl %}<a href="{% if pub.slidesurl contains '://' %}{{ pub.slidesurl }}{% else %}{{ pub.slidesurl | relative_url }}{% endif %}">Slides</a>{% endif %}
+    {% if pub.doiurl and pub.doiurl != pub.paperurl %}<a href="{{ pub.doiurl }}">DOI</a>{% endif %}
+    {% if pub.dblpurl %}<a href="{{ pub.dblpurl }}">DBLP</a>{% endif %}
+    {% if pub.venueurl %}<a href="{{ pub.venueurl }}">Venue</a>{% endif %}
+  </p>
+</div>

@@ -14,4 +14,4 @@ redirect_from:
 
 {% include home/news.md %}
 
-{% include home/selected-publications.md %}
+{% include home/publications.md %}

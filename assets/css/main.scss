@@ -64,6 +64,29 @@
   min-width: 0;
 }
 
+.publication-entry {
+  margin: 1.35rem 0 1.75rem;
+}
+
+.publication-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.publication-authors,
+.publication-venue,
+.publication-excerpt,
+.publication-links {
+  margin: 0.25rem 0;
+}
+
+.publication-links a {
+  display: inline-block;
+  margin: 0.15rem 0.65rem 0.15rem 0;
+  font-weight: 600;
+}
+
 @media (max-width: 640px) {
   .paper-box {
     display: block;

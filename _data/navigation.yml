@@ -6,7 +6,7 @@ main:
     url: "/#news"
 
   - title: "Publications"
-    url: "/publications/"
+    url: "/#publications"
 
   - title: "CV"
     url: "/cv/"

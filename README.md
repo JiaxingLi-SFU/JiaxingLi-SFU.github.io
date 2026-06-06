@@ -17,8 +17,7 @@ https://jiaxingli-sfu.github.io/JiaxingLi_Personal_Page/
 
 ## Structure
 
-- `_pages/about.md`: homepage content, including About Me, News, and Selected Publications.
-- `_pages/publications.md`: full publication list.
+- `_pages/about.md`: homepage content, including About Me, News, and Publications.
 - `_publications/`: individual publication detail pages.
 - `_includes/home/`: homepage content sections.
 - `resources/`: publication images and slides.
