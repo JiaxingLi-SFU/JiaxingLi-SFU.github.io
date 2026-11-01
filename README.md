@@ -10,7 +10,7 @@ Site address once GitHub Pages is enabled: <https://jiaxingli-sfu.github.io/Jiax
 | --- | --- |
 | Name, photo, title, email, profile links | `_config.yml` → `author` |
 | About text and research interests | `index.md` |
-| News | `_data/news.yml` (newest first) |
+| Experience | `_data/experience.yml` (section is hidden while the file is missing or empty) |
 | Education | `_data/education.yml` |
 | Publications | one Markdown file per paper in `_publications/` |
 | Paper figures and slides | `resources/` |

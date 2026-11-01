@@ -3,8 +3,10 @@
     <a class="site-header__brand" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
     <nav class="site-nav" aria-label="Sections">
       <a href="{{ '/#about' | relative_url }}">About</a>
-      <a href="{{ '/#news' | relative_url }}">News</a>
       <a href="{{ '/#publications' | relative_url }}">Publications</a>
+      {%- if site.data.experience and site.data.experience.size > 0 %}
+      <a href="{{ '/#experience' | relative_url }}">Experience</a>
+      {%- endif %}
       <a href="{{ '/#education' | relative_url }}">Education</a>
     </nav>
     <button class="theme-toggle" type="button" aria-label="Switch between light and dark mode" title="Switch between light and dark mode">
