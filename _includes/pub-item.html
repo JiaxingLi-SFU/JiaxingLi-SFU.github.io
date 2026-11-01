@@ -1,0 +1,30 @@
+{%- comment -%}
+  One publication in the homepage list. include.pub is a document from _publications/.
+{%- endcomment -%}
+{%- assign p = include.pub -%}
+{%- assign year = p.date | date: "%Y" -%}
+{%- assign uid = p.url | slugify -%}
+{%- assign short = p.venue_short | default: p.venue -%}
+<li class="pub{% unless p.image %} pub--no-image{% endunless %}" id="{{ uid }}">
+  {%- if p.image %}
+  <a class="pub__thumb" href="{{ p.url | relative_url }}" tabindex="-1" aria-hidden="true">
+    <img src="{{ p.image | relative_url }}" alt="" loading="lazy" decoding="async">
+  </a>
+  {%- endif %}
+  <div class="pub__body">
+    <p class="pub__meta">
+      <span class="badge{% if short == 'arXiv' %} badge--muted{% endif %}">{{ short }} {{ year }}</span>
+      {%- if p.note %}<span class="pub__note">{{ p.note }}</span>{% endif %}
+    </p>
+    <h4 class="pub__title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h4>
+    <p class="pub__authors">{{ p.authors | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+    <p class="pub__venue">{{ p.venue }}</p>
+    {% include pub-links.html pub=p uid=uid %}
+    {%- if p.bibtex %}
+    <div class="bibtex" id="bib-{{ uid }}" hidden>
+      <button type="button" class="copy-btn" data-copy="bibcode-{{ uid }}">{% include icon.html name="copy" %}<span class="copy-btn__label">Copy</span></button>
+      <pre><code id="bibcode-{{ uid }}">{{ p.bibtex | strip | escape }}</code></pre>
+    </div>
+    {%- endif %}
+  </div>
+</li>

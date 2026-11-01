@@ -10,10 +10,7 @@ authors: "**Jiaxing Li**, Mark A. Spoljaric, Mengdi Jin, William I. Atlas, Runze
 arxivurl: "https://arxiv.org/abs/2605.16671"
 pdfurl: "https://arxiv.org/pdf/2605.16671"
 doiurl: "https://doi.org/10.48550/arXiv.2605.16671"
-image: "/resources/sustainable-wild.png"
+image: "/resources/sustainable-wild.jpg"
 citation: "Jiaxing Li, Mark A. Spoljaric, Mengdi Jin, William I. Atlas, Runze Chen, Chi Xu, Edith C. H. Ngai, and Jiangchuan Liu. Sustainable Intelligence for the Wild: Knowledge-Sustainable AI in Remote Ecological Monitoring. HotCarbon 2026 Extended Abstract, arXiv:2605.16671, 2026."
+image_alt: "Sustainable Intelligence for the Wild figure"
 ---
-
-<img src="{{ page.image | relative_url }}" alt="Sustainable Intelligence for the Wild figure" class="publication-hero">
-
-{% include publication-card.html post=page %}

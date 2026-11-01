@@ -1,0 +1,34 @@
+{%- comment -%}
+  Link buttons for a publication.
+  include.pub    the publication document
+  include.uid    unique id used to connect the BibTeX button to its panel
+  include.detail true on the publication's own page (shows DOI/DBLP/venue links instead of the BibTeX toggle)
+{%- endcomment -%}
+{%- assign p = include.pub -%}
+<ul class="links">
+  {%- if p.paperurl %}
+  <li><a href="{{ p.paperurl }}">Paper</a></li>
+  {%- endif %}
+  {%- if p.pdfurl %}
+  <li><a href="{{ p.pdfurl }}">PDF</a></li>
+  {%- endif %}
+  {%- if p.arxivurl %}
+  <li><a href="{{ p.arxivurl }}">arXiv</a></li>
+  {%- endif %}
+  {%- if p.slidesurl %}
+  <li><a href="{% if p.slidesurl contains '://' %}{{ p.slidesurl }}{% else %}{{ p.slidesurl | relative_url }}{% endif %}">Slides</a></li>
+  {%- endif %}
+  {%- if include.detail %}
+    {%- if p.doiurl and p.doiurl != p.paperurl %}
+  <li><a href="{{ p.doiurl }}">DOI</a></li>
+    {%- endif %}
+    {%- if p.dblpurl %}
+  <li><a href="{{ p.dblpurl }}">DBLP</a></li>
+    {%- endif %}
+    {%- if p.venueurl %}
+  <li><a href="{{ p.venueurl }}">Venue</a></li>
+    {%- endif %}
+  {%- elsif p.bibtex %}
+  <li class="js-only"><button type="button" data-bibtex-toggle aria-expanded="false" aria-controls="bib-{{ include.uid }}">{% include icon.html name="quote" %}BibTeX</button></li>
+  {%- endif %}
+</ul>

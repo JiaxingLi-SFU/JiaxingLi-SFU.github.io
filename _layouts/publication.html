@@ -1,0 +1,60 @@
+---
+layout: default
+---
+{%- assign p = page -%}
+{%- assign year = p.date | date: "%Y" -%}
+{%- assign short = p.venue_short | default: p.venue -%}
+{%- assign uid = p.url | slugify -%}
+<article class="paper">
+  <a class="back" href="{{ '/#publications' | relative_url }}">{% include icon.html name="arrow-left" %}All publications</a>
+
+  <header class="paper__header">
+    <p class="pub__meta">
+      <span class="badge{% if short == 'arXiv' %} badge--muted{% endif %}">{{ short }} {{ year }}</span>
+      {%- if p.note %}<span class="pub__note">{{ p.note }}</span>{% endif %}
+    </p>
+    <h1 class="paper__title">{{ p.title }}</h1>
+    <p class="paper__authors">{{ p.authors | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+    <p class="paper__venue">{{ p.venue }}, {{ year }}</p>
+    {% include pub-links.html pub=p uid=uid detail=true %}
+  </header>
+
+  {%- if p.image %}
+  <figure class="paper__figure">
+    <img src="{{ p.image | relative_url }}" alt="{{ p.image_alt | default: 'Figure from the paper' }}">
+  </figure>
+  {%- endif %}
+
+  {%- if p.abstract %}
+  <section class="paper__section">
+    <h2>Abstract</h2>
+    <p class="paper__abstract">{{ p.abstract | strip }}</p>
+  </section>
+  {%- elsif p.excerpt %}
+  <section class="paper__section">
+    <p class="paper__abstract">{{ p.excerpt | strip_html | strip }}</p>
+  </section>
+  {%- endif %}
+
+  {%- if p.bibtex %}
+  <section class="paper__section">
+    <h2>BibTeX</h2>
+    <div class="bibtex">
+      <button type="button" class="copy-btn js-only" data-copy="bibcode-{{ uid }}">{% include icon.html name="copy" %}<span class="copy-btn__label">Copy</span></button>
+      <pre><code id="bibcode-{{ uid }}">{{ p.bibtex | strip | escape }}</code></pre>
+    </div>
+  </section>
+  {%- elsif p.citation %}
+  <section class="paper__section">
+    <h2>Citation</h2>
+    <p>{{ p.citation }}</p>
+  </section>
+  {%- endif %}
+
+  {%- assign body = content | strip %}
+  {%- if body != "" %}
+  <section class="paper__section prose">
+    {{ content }}
+  </section>
+  {%- endif %}
+</article>

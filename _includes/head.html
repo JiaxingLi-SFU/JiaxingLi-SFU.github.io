@@ -1,21 +1,60 @@
-{% include base_path %}
-
+{%- assign is_home = false -%}
+{%- if page.url == "/" -%}{%- assign is_home = true -%}{%- endif -%}
+{%- if is_home or page.title == nil or page.title == "" -%}
+  {%- assign full_title = site.title | append: " · " | append: site.author.affiliation -%}
+{%- else -%}
+  {%- assign full_title = page.title | strip_html | append: " · " | append: site.title -%}
+{%- endif -%}
+{%- assign description = page.abstract | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 200 -%}
+{%- if is_home -%}{%- assign description = site.description -%}{%- endif -%}
+{%- assign og_image = page.image | default: site.author.avatar -%}
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ full_title | escape }}</title>
+<meta name="description" content="{{ description | escape }}">
+<meta name="author" content="{{ site.author.name | escape }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
 
-{% include seo.html %}
+<meta property="og:type" content="{% if page.collection == 'publications' %}article{% else %}profile{% endif %}">
+<meta property="og:site_name" content="{{ site.title | escape }}">
+<meta property="og:title" content="{{ full_title | escape }}">
+<meta property="og:description" content="{{ description | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:image" content="{{ og_image | absolute_url }}">
+<meta name="twitter:card" content="summary">
 
-<link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131417" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="{{ '/images/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="alternate icon" href="{{ '/images/favicon.ico' | relative_url }}">
 
-<!-- http://t.co/dKP3o1e -->
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<link rel="preload" href="{{ '/assets/fonts/Inter-normal-400-700-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 <script>
-  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  // Mark JavaScript as available and apply a saved light/dark choice before the page paints.
+  (function () {
+    var root = document.documentElement;
+    root.classList.add("js");
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") root.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
 </script>
+<script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 
-<!-- For all browsers -->
-<link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
-
-<meta http-equiv="cleartype" content="on">
+{%- if is_home %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ site.author.name | jsonify }},
+  "url": {{ '/' | absolute_url | jsonify }},
+  "image": {{ site.author.avatar | absolute_url | jsonify }},
+  "email": {{ site.author.email | prepend: 'mailto:' | jsonify }},
+  "jobTitle": {{ site.author.position | jsonify }},
+  "affiliation": { "@type": "CollegeOrUniversity", "name": {{ site.author.affiliation | jsonify }} },
+  "sameAs": {{ site.author.links | map: 'url' | jsonify }}
+}
+</script>
+{%- endif %}
