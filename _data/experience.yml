@@ -6,7 +6,6 @@
   company: "Fortinet"
   location: "Burnaby, Canada"
   highlights:
-    - "Designed and developed an LLM agent for FortiDeceptor, Fortinet's deception platform, that analyzes attack incidents, plans decoy deployments, and answers product questions in conversation with security engineers."
-    - "Reduced hallucinations in incident analysis: counting and aggregation run in deterministic tools, and the model reasons over compact evidence within a fixed context budget, so reported statistics are exact and traceable."
-    - "Built a safe planning loop for autonomous decoy deployment, with a two-tier LLM review that gates each plan and triggers replanning, and explicit human approval before any change to the device."
-    - "Built fully offline retrieval-augmented Q&A over the product guide with a local embedding model, and an end-to-end benchmark that separates tool-use correctness from answer quality."
+    - "Designed and built, end to end, an AI agent that lets security engineers run FortiDeceptor, Fortinet's cyber-deception product that traps attackers with decoy systems, through plain-language conversation: it investigates attacks, plans defenses, and deploys them on live devices."
+    - "Made its attack analysis trustworthy at scale: the agent examines tens of thousands of attack records, far more than a language model can read at once, and reports exact, verifiable numbers instead of hallucinated ones."
+    - "Turned a single request into an autonomous defense: the agent maps the live network, designs tailored decoys, including ones that mimic the targets of a spreading attack, reviews and revises its own plan, and deploys only after a human signs off."
