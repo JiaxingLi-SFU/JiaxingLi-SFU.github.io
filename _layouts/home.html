@@ -101,7 +101,10 @@ layout: default
       <li>
         <span class="timeline__date">{{ x.period }}</span>
         <div>
-          <h3 class="timeline__title">{{ x.role }}</h3>
+          <div class="timeline__head">
+            <h3 class="timeline__title">{{ x.role }}</h3>
+            {%- if x.note %}<span class="timeline__kind">{{ x.note }}</span>{% endif %}
+          </div>
           <p class="timeline__org">{{ x.company }}{% if x.location %}, {{ x.location }}{% endif %}</p>
           {%- if x.highlights %}
           <ul class="timeline__points">

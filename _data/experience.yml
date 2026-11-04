@@ -1,8 +1,10 @@
 # Work experience, newest first. Used on the homepage and in the CV.
 # `highlights` support Markdown. The Experience section appears only when this file has entries.
+# `note` is an optional small label shown beside the role (homepage) and under the dates (CV), e.g. "Internship".
 
 - period: "2025.12 – Present"
-  role: "AI Researcher Intern"
+  role: "AI Researcher"
+  note: "Internship"
   company: "Fortinet"
   location: "Burnaby, BC, Canada"
   tags: ["LLM agents", "Retrieval-augmented generation", "Cybersecurity", "Human-in-the-loop AI"]

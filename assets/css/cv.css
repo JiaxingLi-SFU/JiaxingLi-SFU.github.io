@@ -156,6 +156,8 @@ h3 {
   font-variant-numeric: tabular-nums;
 }
 .entry__sub { color: var(--ink-2); }
+.entry__sub--split { display: flex; gap: 12pt; }
+.entry__note { margin-left: auto; color: var(--muted); font-size: 8.4pt; white-space: nowrap; }
 .entry__sub a { text-decoration: underline; text-decoration-color: var(--rule); }
 
 .bullets {

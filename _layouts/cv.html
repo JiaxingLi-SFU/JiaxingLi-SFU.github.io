@@ -98,7 +98,7 @@
         {%- for x in site.data.experience %}
         <div class="entry">
           <p class="entry__head"><span><strong>{{ x.company }}</strong>, {{ x.location }}</span><span class="entry__date">{{ x.period }}</span></p>
-          <p class="entry__sub"><em>{{ x.role }}</em></p>
+          <p class="entry__sub{% if x.note %} entry__sub--split{% endif %}"><em>{{ x.role }}</em>{% if x.note %}<span class="entry__note">{{ x.note }}</span>{% endif %}</p>
           {%- if x.highlights %}
           <ul class="bullets">
             {%- for h in x.highlights %}

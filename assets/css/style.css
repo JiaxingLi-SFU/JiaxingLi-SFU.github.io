@@ -723,6 +723,16 @@ html:not(.js) .js-only { display: none !important; }
   font-variant-numeric: tabular-nums;
 }
 .timeline__title { margin: 0; font-size: 1.04rem; font-weight: 600; }
+.timeline__head { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; }
+.timeline__kind {
+  padding: 0 7px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
 .timeline__org { color: var(--text-2); }
 .timeline__note { color: var(--muted); font-size: 0.92rem; }
 .timeline__points {
