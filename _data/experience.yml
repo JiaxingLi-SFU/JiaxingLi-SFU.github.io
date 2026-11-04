@@ -1,0 +1,12 @@
+# Work experience, newest first. `highlights` support Markdown.
+# The Experience section and its nav link appear only when this file has entries.
+
+- period: "2025.12 – Present"
+  role: "AI Researcher"
+  company: "Fortinet"
+  location: "Burnaby, Canada"
+  highlights:
+    - "Designed and developed an LLM agent for FortiDeceptor, Fortinet's deception platform, that analyzes attack incidents, plans decoy deployments, and answers product questions in conversation with security engineers."
+    - "Reduced hallucinations in incident analysis: counting and aggregation run in deterministic tools, and the model reasons over compact evidence within a fixed context budget, so reported statistics are exact and traceable."
+    - "Built a safe planning loop for autonomous decoy deployment, with a two-tier LLM review that gates each plan and triggers replanning, and explicit human approval before any change to the device."
+    - "Built fully offline retrieval-augmented Q&A over the product guide with a local embedding model, and an end-to-end benchmark that separates tool-use correctness from answer quality."
