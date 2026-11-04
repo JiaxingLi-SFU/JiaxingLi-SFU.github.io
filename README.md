@@ -13,7 +13,7 @@ Live site: <https://jiaxingli-sfu.github.io/>
 | Research themes (the three cards) | `_data/research.yml` |
 | Experience | `_data/experience.yml` (section is hidden while the file is missing or empty) |
 | Teaching | `_data/teaching.yml` |
-| Honors and awards (`cv_only: true` keeps an entry off the homepage) | `_data/awards.yml` |
+| Honors and awards (CV only; a paper award also shows as a badge via `award:` in the paper's file) | `_data/awards.yml` |
 | Academic service | `_data/service.yml` |
 | Education (GPA appears only in the CV) | `_data/education.yml` |
 | Skills (CV only) | `_data/skills.yml` |

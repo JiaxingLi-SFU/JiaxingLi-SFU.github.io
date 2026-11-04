@@ -17,11 +17,7 @@ layout: default
       {%- if now_job and now_job.period contains "Present" %}
       <p class="profile__now">{% include icon.html name="briefcase" %}Currently {{ now_job.role }} at {{ now_job.company }}</p>
       {%- endif %}
-      <ul class="profile__links" aria-label="Contact and profiles">
-        <li><a href="mailto:{{ a.email }}">{% include icon.html name="mail" %}<span>Email</span></a></li>
-        {%- if a.cv %}
-        <li><a href="{{ a.cv | relative_url }}">{% include icon.html name="file-text" %}<span>CV</span></a></li>
-        {%- endif %}
+      <ul class="profile__links" aria-label="Profiles">
         {%- for l in a.links %}
         <li><a href="{{ l.url }}">{% include icon.html name=l.icon %}<span>{{ l.name }}</span></a></li>
         {%- endfor %}
@@ -138,25 +134,6 @@ layout: default
         <div>
           <h3 class="timeline__title">{{ t.course }}</h3>
           <p class="timeline__org">{{ t.role }}, {{ t.school }}</p>
-        </div>
-      </li>
-      {%- endfor %}
-    </ul>
-  </section>
-  {%- endif %}
-
-  {%- assign home_awards = site.data.awards | where_exp: "w", "w.cv_only != true" %}
-  {%- if home_awards.size > 0 %}
-  <section class="section" id="awards" aria-labelledby="awards-title">
-    <h2 class="section-title" id="awards-title">Honors &amp; Awards</h2>
-    <ul class="timeline">
-      {%- for w in home_awards %}
-      <li>
-        <span class="timeline__date">{{ w.year }}</span>
-        <div>
-          <h3 class="timeline__title">{{ w.title }}</h3>
-          <p class="timeline__org">{{ w.org }}</p>
-          {%- if w.note %}<p class="timeline__note">{{ w.note }}</p>{% endif %}
         </div>
       </li>
       {%- endfor %}

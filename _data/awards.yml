@@ -1,5 +1,5 @@
-# Honors and awards, used on the homepage and in the CV.
-# Entries with `cv_only: true` appear in the CV but not on the homepage.
+# Honors and awards, newest first. Shown in the CV only; the homepage has no awards section.
+# A paper award also shows as a badge on that paper: set `award:` in its file in _publications/.
 
 - year: "2023"
   title: "Best Paper Award"
@@ -12,25 +12,20 @@
 - year: "2023, 2024, 2025"
   title: "Ph.D. Research Scholarship"
   org: "Simon Fraser University"
-  cv_only: true
 
 - year: "2022, 2023"
   title: "Undergraduate Open Scholarship"
   org: "Simon Fraser University"
   note: "Top 5% of students in the Faculty of Applied Sciences"
-  cv_only: true
 
 - year: "2022"
   title: "Vice President Research and Innovation Undergraduate Student Research Award (VPRI USRA)"
   org: "Simon Fraser University"
-  cv_only: true
 
 - year: "2022"
   title: "President's Honour Roll"
   org: "Simon Fraser University"
-  cv_only: true
 
 - year: "2021, 2022"
   title: "Dean's Honour Roll"
   org: "Simon Fraser University"
-  cv_only: true
