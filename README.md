@@ -2,7 +2,7 @@
 
 Personal academic homepage, built with [Jekyll](https://jekyllrb.com/) and hosted on GitHub Pages.
 
-Site address once GitHub Pages is enabled: <https://jiaxingli-sfu.github.io/JiaxingLi_Personal_Page/>
+Live site: <https://jiaxingli-sfu.github.io/>
 
 ## Editing content
 
@@ -51,12 +51,11 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Then open <http://localhost:4000/JiaxingLi_Personal_Page/>.
+Then open <http://localhost:4000/>.
 
 ## Publishing
 
-In the repository on GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch**, then choose `main` and `/ (root)`.
-GitHub Pages works on public repositories with any plan; a private repository needs GitHub Pro (included in the GitHub Student Developer Pack).
+GitHub Pages builds and publishes the site from the `main` branch (**Settings → Pages → Deploy from a branch → `main` / `(root)`**). Every push to `main` updates the live site within a minute or two.
 
 ## Structure
 

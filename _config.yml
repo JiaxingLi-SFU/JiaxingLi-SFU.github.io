@@ -4,8 +4,8 @@
 title: "Jiaxing Li"
 description: "Ph.D. student in Computing Science at Simon Fraser University, working on LLM applications, cloud/edge computing, and distributed systems."
 url: "https://jiaxingli-sfu.github.io"
-baseurl: "/JiaxingLi_Personal_Page"
-repository: "JiaxingLi-SFU/JiaxingLi_Personal_Page"
+baseurl: ""
+repository: "JiaxingLi-SFU/JiaxingLi-SFU.github.io"
 locale: "en-US"
 timezone: America/Vancouver
 # GitHub Pages applies the Primer theme by default; this site has its own layouts and styles.
