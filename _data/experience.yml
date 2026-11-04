@@ -4,7 +4,7 @@
 - period: "2025.12 – Present"
   role: "AI Researcher"
   company: "Fortinet"
-  location: "Burnaby, Canada"
+  location: "Burnaby, BC, Canada"
   tags: ["LLM agents", "Retrieval-augmented generation", "Cybersecurity", "Human-in-the-loop AI"]
   highlights:
     - "Designed and built, end to end, an AI agent that lets security engineers run FortiDeceptor, Fortinet's cyber-deception product that traps attackers with decoy systems, through plain-language conversation: it investigates attacks, plans defenses, and deploys them on live devices."
@@ -23,7 +23,7 @@
 - period: "2022.05 – 2023.05"
   role: "Undergraduate Research Assistant"
   company: "4D LABS"
-  location: "Burnaby, Canada"
+  location: "Burnaby, BC, Canada"
   highlights:
-    - "Developed the Smart pH Reader Android app, which turns smartphone camera images into quantitative pH measurements through color analysis, with accuracy comparable to laboratory equipment."
+    - "Developed the Smart pH Reader Android app, funded by an SFU Undergraduate Student Research Award (VPRI USRA), which turns smartphone camera images into quantitative pH measurements through color analysis, with accuracy comparable to laboratory equipment."
     - "Validated the app in classroom experiments with more than 150 high school and undergraduate students; published as a first-author paper in the Journal of Chemical Education."

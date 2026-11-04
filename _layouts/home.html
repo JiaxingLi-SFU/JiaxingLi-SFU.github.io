@@ -145,11 +145,12 @@ layout: default
   </section>
   {%- endif %}
 
-  {%- if site.data.awards %}
+  {%- assign home_awards = site.data.awards | where_exp: "w", "w.cv_only != true" %}
+  {%- if home_awards.size > 0 %}
   <section class="section" id="awards" aria-labelledby="awards-title">
     <h2 class="section-title" id="awards-title">Honors &amp; Awards</h2>
     <ul class="timeline">
-      {%- for w in site.data.awards %}
+      {%- for w in home_awards %}
       <li>
         <span class="timeline__date">{{ w.year }}</span>
         <div>

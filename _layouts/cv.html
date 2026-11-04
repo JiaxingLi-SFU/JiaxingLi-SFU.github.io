@@ -43,6 +43,7 @@
           <a href="{{ linkedin.url }}">LinkedIn</a>
           {%- endif %}
         </p>
+        <p class="cv-head__updated">Last updated {{ site.time | date: "%B %Y" }}</p>
       </header>
 
       {%- if site.data.research %}
@@ -160,7 +161,6 @@
       </section>
       {%- endif %}
 
-      <p class="cv-updated">Last updated {{ site.time | date: "%B %Y" }}</p>
     </main>
   </body>
 </html>

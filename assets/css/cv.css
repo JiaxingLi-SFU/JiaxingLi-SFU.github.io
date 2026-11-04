@@ -57,7 +57,7 @@
    ------------------------------------------------------------------ */
 @page {
   size: letter;
-  margin: 0.5in 0.6in 0.55in;
+  margin: 0.5in 0.55in 0.55in;
 }
 
 :root {
@@ -106,7 +106,7 @@ p { margin: 0; }
 .cv {
   max-width: 8.5in;
   margin: 0 auto 40px;
-  padding: 0.5in 0.6in 0.55in;
+  padding: 0.5in 0.55in 0.55in;
   background: var(--paper);
   box-shadow: 0 1px 2px rgba(26, 29, 38, 0.06), 0 12px 32px -16px rgba(26, 29, 38, 0.25);
 }
@@ -191,11 +191,10 @@ h3 {
 .pubs em { font-family: var(--font-serif); font-size: 1.04em; }
 .pubs .award { color: var(--accent); font-weight: 700; }
 
-.cv-updated {
-  margin-top: 12pt;
+.cv-head__updated {
+  margin-top: 2pt;
   color: var(--muted);
-  font-size: 8pt;
-  text-align: right;
+  font-size: 7.6pt;
 }
 
 /* ------------------------------------------------------------------
