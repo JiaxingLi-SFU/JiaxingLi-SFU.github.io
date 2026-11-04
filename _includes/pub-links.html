@@ -4,28 +4,29 @@
   include.detail  true on the publication's own page (adds DOI/DBLP/venue links; BibTeX is shown on the page itself)
 {%- endcomment -%}
 {%- assign p = include.pub -%}
+{%- capture ext %}{% include icon.html name="arrow-up-right" %}{% endcapture -%}
 <ul class="links">
   {%- if p.paperurl %}
-  <li><a href="{{ p.paperurl }}">Paper</a></li>
+  <li><a href="{{ p.paperurl }}">Paper{{ ext }}</a></li>
   {%- endif %}
   {%- if p.pdfurl %}
-  <li><a href="{{ p.pdfurl }}">PDF</a></li>
+  <li><a href="{{ p.pdfurl }}">PDF{{ ext }}</a></li>
   {%- endif %}
   {%- if p.arxivurl %}
-  <li><a href="{{ p.arxivurl }}">arXiv</a></li>
+  <li><a href="{{ p.arxivurl }}">arXiv{{ ext }}</a></li>
   {%- endif %}
   {%- if p.slidesurl %}
-  <li><a href="{% if p.slidesurl contains '://' %}{{ p.slidesurl }}{% else %}{{ p.slidesurl | relative_url }}{% endif %}">Slides</a></li>
+  <li><a href="{% if p.slidesurl contains '://' %}{{ p.slidesurl }}{% else %}{{ p.slidesurl | relative_url }}{% endif %}">Slides{{ ext }}</a></li>
   {%- endif %}
   {%- if include.detail %}
     {%- if p.doiurl and p.doiurl != p.paperurl %}
-  <li><a href="{{ p.doiurl }}">DOI</a></li>
+  <li><a href="{{ p.doiurl }}">DOI{{ ext }}</a></li>
     {%- endif %}
     {%- if p.dblpurl %}
-  <li><a href="{{ p.dblpurl }}">DBLP</a></li>
+  <li><a href="{{ p.dblpurl }}">DBLP{{ ext }}</a></li>
     {%- endif %}
     {%- if p.venueurl %}
-  <li><a href="{{ p.venueurl }}">Venue</a></li>
+  <li><a href="{{ p.venueurl }}">Venue{{ ext }}</a></li>
     {%- endif %}
   {%- elsif p.bibtex %}
   <li class="js-only"><button type="button" data-bibtex="{{ p.bibtex | strip | escape }}" data-title="{{ p.title | escape }}" data-href="{{ p.url | relative_url }}">{% include icon.html name="quote" %}BibTeX</button></li>

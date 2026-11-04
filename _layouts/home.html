@@ -7,178 +7,212 @@ layout: default
 {%- assign scholar = a.links | where: "icon", "googlescholar" | first -%}
 
 <div class="container">
-  <section class="profile" id="about" aria-label="Profile">
-    <div class="profile__text">
-      <h1 class="profile__name">{{ a.name }}</h1>
-      <p class="profile__role">
-        {{ a.position }}<br>
-        <a href="{{ a.affiliation_url }}">{{ a.affiliation }}</a>, {{ a.location }}
-      </p>
+  <div id="about">
+  <section class="hero" aria-label="Profile">
+    <div class="hero__aside">
+      <img class="hero__photo" src="{{ a.avatar | relative_url }}" alt="Photo of {{ a.name }}" width="148" height="148">
+    </div>
+    <div class="hero__main">
+      <h1 class="hero__name">{{ a.name }}</h1>
+      <p class="hero__role">{{ a.position }}</p>
+      <p class="hero__affil"><a href="{{ a.affiliation_url }}">{{ a.affiliation }}</a><span class="sep" aria-hidden="true">·</span>{{ a.location }}</p>
       {%- if now_job and now_job.period contains "Present" %}
-      <p class="profile__now">{% include icon.html name="briefcase" %}Currently {{ now_job.role }} at {{ now_job.company }}</p>
+      <p class="hero__now"><span class="hero__dot" aria-hidden="true"></span>Currently {{ now_job.role }} at {{ now_job.company }}</p>
       {%- endif %}
-      <ul class="profile__links" aria-label="Profiles">
+      <ul class="hero__links" aria-label="Profiles">
         {%- for l in a.links %}
         <li><a href="{{ l.url }}">{% include icon.html name=l.icon %}<span>{{ l.name }}</span></a></li>
         {%- endfor %}
       </ul>
     </div>
-    <img class="profile__photo" src="{{ a.avatar | relative_url }}" alt="Photo of {{ a.name }}" width="176" height="176">
   </section>
 
   <section class="section" aria-labelledby="about-title">
-    <h2 class="section-title" id="about-title">About</h2>
-    <div class="prose">
-      {{ content }}
+    <div class="section__head">
+      <h2 class="section__title" id="about-title">About</h2>
     </div>
-    {%- if page.interests %}
-    <h3 class="subhead">Research interests</h3>
-    <ul class="chips">
-      {%- for i in page.interests %}
-      <li{% if forloop.index <= 3 %} class="chip--core"{% endif %}>{{ i }}</li>
-      {%- endfor %}
-    </ul>
-    {%- endif %}
+    <div class="section__body">
+      <div class="prose">
+        {{ content }}
+      </div>
+      {%- if page.interests %}
+      <h3 class="subhead">Research interests</h3>
+      <ul class="chips">
+        {%- for i in page.interests %}
+        <li{% if forloop.index <= 3 %} class="chip--core"{% endif %}>{{ i }}</li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+    </div>
   </section>
+  </div>
 
   {%- if site.data.research %}
   <section class="section" id="research" aria-labelledby="research-title">
-    <h2 class="section-title" id="research-title">Research</h2>
-    <div class="themes">
-      {%- for t in site.data.research %}
-      <article class="theme">
-        <h3 class="theme__title"><span class="theme__num">0{{ forloop.index }}</span>{{ t.title }}</h3>
-        <p class="theme__summary">{{ t.summary }}</p>
-        <ul class="theme__papers" aria-label="Related work">
-          {%- for slug in t.papers %}
-          {%- assign target = '/publication/' | append: slug | append: '/' %}
-          {%- assign tp = site.publications | where: "url", target | first %}
-          {%- if tp %}
-          <li><a href="{{ tp.url | relative_url }}"><span>{{ tp.short_name | default: tp.title }}</span><span class="theme__venue">{{ tp.venue_short }} {{ tp.date | date: '%Y' }}</span></a></li>
-          {%- endif %}
-          {%- endfor %}
-          {%- for x in t.extra %}
-          <li><a href="{{ x.url | relative_url }}"><span>{{ x.label }}</span><span class="theme__venue">{{ x.detail }}</span></a></li>
-          {%- endfor %}
-        </ul>
-      </article>
-      {%- endfor %}
+    <div class="section__head">
+      <h2 class="section__title" id="research-title">Research</h2>
+    </div>
+    <div class="section__body">
+      <ol class="themes">
+        {%- for t in site.data.research %}
+        <li class="theme">
+          <div class="theme__main">
+            <h3 class="theme__title"><span class="theme__num">0{{ forloop.index }}</span>{{ t.title }}</h3>
+            <p class="theme__summary">{{ t.summary }}</p>
+          </div>
+          <ul class="theme__papers" aria-label="Related work">
+            {%- for slug in t.papers %}
+            {%- assign target = '/publication/' | append: slug | append: '/' %}
+            {%- assign tp = site.publications | where: "url", target | first %}
+            {%- if tp %}
+            <li><a href="{{ tp.url | relative_url }}"><span>{{ tp.short_name | default: tp.title }}</span><span class="theme__venue">{{ tp.venue_short }} {{ tp.date | date: '%Y' }}</span></a></li>
+            {%- endif %}
+            {%- endfor %}
+            {%- for x in t.extra %}
+            <li><a href="{{ x.url | relative_url }}"><span>{{ x.label }}</span><span class="theme__venue">{{ x.detail }}</span></a></li>
+            {%- endfor %}
+          </ul>
+        </li>
+        {%- endfor %}
+      </ol>
     </div>
   </section>
   {%- endif %}
 
   <section class="section" id="publications" aria-labelledby="publications-title">
-    <div class="section-head">
-      <h2 class="section-title" id="publications-title">Publications</h2>
-      {%- if scholar %}
-      <a class="section-aside" href="{{ scholar.url }}">Google Scholar {% include icon.html name="arrow-up-right" %}</a>
-      {%- endif %}
+    <div class="section__head">
+      <h2 class="section__title" id="publications-title">Publications</h2>
     </div>
-    {%- assign first_count = 0 %}
-    {%- for p in pubs %}{% assign lead = p.authors | slice: 0, 14 %}{% if lead == "**Jiaxing Li**" %}{% assign first_count = first_count | plus: 1 %}{% endif %}{% endfor %}
-    <div class="filters js-only" role="group" aria-label="Show publications">
-      <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All<span>{{ pubs.size }}</span></button>
-      <button class="filter" type="button" data-filter="first" aria-pressed="false">First author<span>{{ first_count }}</span></button>
-    </div>
-    {%- assign years = pubs | group_by_exp: "p", "p.date | date: '%Y'" %}
-    {%- for y in years %}
-    <div class="pub-group">
-      <h3 class="pub-year">{{ y.name }}</h3>
-      <ol class="pubs">
-        {%- for p in y.items %}
-        {% include pub-item.html pub=p %}
+    <div class="section__body">
+      {%- assign first_count = 0 %}
+      {%- for p in pubs %}{% assign lead = p.authors | slice: 0, 14 %}{% if lead == "**Jiaxing Li**" %}{% assign first_count = first_count | plus: 1 %}{% endif %}{% endfor %}
+      <div class="pubs-toolbar">
+        <div class="filters js-only" role="group" aria-label="Show publications">
+          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All<span>{{ pubs.size }}</span></button>
+          <button class="filter" type="button" data-filter="first" aria-pressed="false">First author<span>{{ first_count }}</span></button>
+        </div>
+        {%- if scholar %}
+        <a class="aside-link" href="{{ scholar.url }}">Google Scholar{% include icon.html name="arrow-up-right" %}</a>
+        {%- endif %}
+      </div>
+      {%- assign years = pubs | group_by_exp: "p", "p.date | date: '%Y'" %}
+      <div class="pub-list">
+        {%- for y in years %}
+        <div class="pub-group">
+          <h3 class="pub-year">{{ y.name }}</h3>
+          <ol class="pubs">
+            {%- for p in y.items %}
+            {% include pub-item.html pub=p %}
+            {%- endfor %}
+          </ol>
+        </div>
         {%- endfor %}
-      </ol>
+      </div>
     </div>
-    {%- endfor %}
   </section>
 
   <section class="section" id="education" aria-labelledby="education-title">
-    <h2 class="section-title" id="education-title">Education</h2>
-    <ul class="timeline">
-      {%- for e in site.data.education %}
-      <li>
-        <span class="timeline__date">{{ e.period }}</span>
-        <div>
-          <h3 class="timeline__title">{{ e.degree }}</h3>
-          <p class="timeline__org">{{ e.school }}</p>
-          {%- if e.note %}
-          <p class="timeline__note">{{ e.note | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
-          {%- endif %}
-        </div>
-      </li>
-      {%- endfor %}
-    </ul>
+    <div class="section__head">
+      <h2 class="section__title" id="education-title">Education</h2>
+    </div>
+    <div class="section__body">
+      <ul class="timeline">
+        {%- for e in site.data.education %}
+        <li>
+          <span class="timeline__date">{{ e.period }}</span>
+          <div>
+            <h3 class="timeline__title">{{ e.degree }}</h3>
+            <p class="timeline__org">{{ e.school }}</p>
+            {%- if e.note %}
+            <p class="timeline__note">{{ e.note | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+            {%- endif %}
+          </div>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
   </section>
 
   {%- if site.data.experience and site.data.experience.size > 0 %}
   <section class="section" id="experience" aria-labelledby="experience-title">
-    <h2 class="section-title" id="experience-title">Experience</h2>
-    <ul class="timeline">
-      {%- for x in site.data.experience %}
-      <li>
-        <span class="timeline__date">{{ x.period }}</span>
-        <div>
-          <div class="timeline__head">
-            <h3 class="timeline__title">{{ x.role }}</h3>
-            {%- if x.note %}<span class="timeline__kind">{{ x.note }}</span>{% endif %}
+    <div class="section__head">
+      <h2 class="section__title" id="experience-title">Experience</h2>
+    </div>
+    <div class="section__body">
+      <ul class="timeline">
+        {%- for x in site.data.experience %}
+        <li>
+          <span class="timeline__date">{{ x.period }}</span>
+          <div>
+            <div class="timeline__head">
+              <h3 class="timeline__title">{{ x.role }}</h3>
+              {%- if x.note %}<span class="timeline__kind">{{ x.note }}</span>{% endif %}
+            </div>
+            <p class="timeline__org">{{ x.company }}{% if x.location %}, {{ x.location }}{% endif %}</p>
+            {%- if x.highlights %}
+            <ul class="timeline__points">
+              {%- for h in x.highlights %}
+              <li>{{ h | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
+              {%- endfor %}
+            </ul>
+            {%- endif %}
+            {%- if x.tags %}
+            <ul class="tags" aria-label="Topics">
+              {%- for t in x.tags %}
+              <li>{{ t }}</li>
+              {%- endfor %}
+            </ul>
+            {%- endif %}
           </div>
-          <p class="timeline__org">{{ x.company }}{% if x.location %}, {{ x.location }}{% endif %}</p>
-          {%- if x.highlights %}
-          <ul class="timeline__points">
-            {%- for h in x.highlights %}
-            <li>{{ h | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
-            {%- endfor %}
-          </ul>
-          {%- endif %}
-          {%- if x.tags %}
-          <ul class="tags" aria-label="Topics">
-            {%- for t in x.tags %}
-            <li>{{ t }}</li>
-            {%- endfor %}
-          </ul>
-          {%- endif %}
-        </div>
-      </li>
-      {%- endfor %}
-    </ul>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
   </section>
   {%- endif %}
 
   {%- if site.data.teaching %}
   <section class="section" id="teaching" aria-labelledby="teaching-title">
-    <h2 class="section-title" id="teaching-title">Teaching</h2>
-    <ul class="timeline">
-      {%- for t in site.data.teaching %}
-      <li>
-        <span class="timeline__date">{{ t.term }}</span>
-        <div>
-          <h3 class="timeline__title">{{ t.course }}</h3>
-          <p class="timeline__org">{{ t.role }}, {{ t.school }}</p>
-        </div>
-      </li>
-      {%- endfor %}
-    </ul>
+    <div class="section__head">
+      <h2 class="section__title" id="teaching-title">Teaching</h2>
+    </div>
+    <div class="section__body">
+      <ul class="timeline">
+        {%- for t in site.data.teaching %}
+        <li>
+          <span class="timeline__date">{{ t.term }}</span>
+          <div>
+            <h3 class="timeline__title">{{ t.course }}</h3>
+            <p class="timeline__org">{{ t.role }}, {{ t.school }}</p>
+          </div>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
   </section>
   {%- endif %}
 
   {%- if site.data.service %}
   <section class="section" id="service" aria-labelledby="service-title">
-    <h2 class="section-title" id="service-title">Academic Service</h2>
-    <ul class="timeline">
-      {%- for s in site.data.service %}
-      <li>
-        <span class="timeline__date">{{ s.group }}</span>
-        <div>
-          <ul class="service-list">
-            {%- for v in s.venues %}
-            <li>{{ v }}</li>
-            {%- endfor %}
-          </ul>
-        </div>
-      </li>
-      {%- endfor %}
-    </ul>
+    <div class="section__head">
+      <h2 class="section__title" id="service-title">Academic Service</h2>
+    </div>
+    <div class="section__body">
+      <ul class="timeline timeline--groups">
+        {%- for s in site.data.service %}
+        <li>
+          <span class="timeline__date">{{ s.group }}</span>
+          <div>
+            <ul class="service-list">
+              {%- for v in s.venues %}
+              <li>{{ v }}</li>
+              {%- endfor %}
+            </ul>
+          </div>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
   </section>
   {%- endif %}
 </div>
