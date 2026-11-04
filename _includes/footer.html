@@ -1,6 +1,22 @@
-<footer class="site-footer">
-  <div class="site-footer__inner">
-    <p>&copy; {{ site.time | date: "%Y" }} {{ site.author.name }}</p>
+{%- assign a = site.author -%}
+<footer class="footer" id="contact">
+  <div class="container footer__inner">
+    <p class="eyebrow eyebrow--light">Contact</p>
+    <h2 class="footer__title">Get in <em>touch</em></h2>
+    <p class="footer__text">Feel free to reach out by email or through any of the profiles below.</p>
+    <div class="footer__actions">
+      <a class="btn btn--primary" href="mailto:{{ a.email }}">{% include icon.html name="mail" %}{{ a.email }}</a>
+      <button class="btn btn--glass js-only" type="button" data-copy-text="{{ a.email }}">{% include icon.html name="copy" %}<span class="copy-btn__label">Copy email</span></button>
+    </div>
+    <ul class="social" aria-label="Profiles">
+      {%- for l in a.links %}
+      <li><a href="{{ l.url }}">{% include icon.html name=l.icon %}<span>{{ l.name }}</span></a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+  <div class="container footer__bottom">
+    <p>&copy; {{ site.time | date: "%Y" }} {{ a.name }}</p>
     <p>Last updated {{ site.time | date: "%B %Y" }}</p>
+    <a class="footer__top" href="#top">Back to top {% include icon.html name="arrow-up" %}</a>
   </div>
 </footer>

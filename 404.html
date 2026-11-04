@@ -5,8 +5,11 @@ permalink: /404.html
 sitemap: false
 ---
 <section class="notfound">
-  <p class="notfound__code">404</p>
-  <h1>Page not found</h1>
-  <p>The page you were looking for doesn't exist or has moved.</p>
-  <p><a href="{{ '/' | relative_url }}">Back to the homepage</a></p>
+  <canvas class="sky" aria-hidden="true"></canvas>
+  <div class="container notfound__inner">
+    <p class="notfound__code">404</p>
+    <h1 class="notfound__title">This page drifted out of orbit.</h1>
+    <p class="notfound__text">The page you were looking for doesn't exist or has moved.</p>
+    <a class="btn btn--primary" href="{{ '/' | relative_url }}">Back to the homepage</a>
+  </div>
 </section>

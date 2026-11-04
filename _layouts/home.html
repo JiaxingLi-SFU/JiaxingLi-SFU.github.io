@@ -2,94 +2,228 @@
 layout: default
 ---
 {%- assign a = site.author -%}
-<section class="hero" aria-label="Profile">
-  <img class="hero__photo" src="{{ a.avatar | relative_url }}" alt="Photo of {{ a.name }}" width="168" height="168">
-  <div class="hero__text">
-    <h1 class="hero__name">{{ a.name }}</h1>
-    <p class="hero__role">{{ a.position }}<br><a href="{{ a.affiliation_url }}">{{ a.affiliation }}</a></p>
-    <p class="hero__meta">
-      <span>{% include icon.html name="map-pin" %}{{ a.location }}</span>
-      <a href="mailto:{{ a.email }}">{% include icon.html name="mail" %}{{ a.email }}</a>
-    </p>
-    <ul class="hero__links">
-      {%- for l in a.links %}
-      <li><a href="{{ l.url }}">{% include icon.html name=l.icon %}<span>{{ l.name }}</span></a></li>
+{%- assign pubs = site.publications | reverse -%}
+{%- assign now_job = site.data.experience | first -%}
+{%- assign scholar = a.links | where: "icon", "googlescholar" | first -%}
+
+<section class="hero" aria-label="Introduction">
+  <canvas class="sky" aria-hidden="true"></canvas>
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <p class="eyebrow eyebrow--light">{{ a.position }} · {{ a.affiliation }}</p>
+      <h1 class="hero__name">{{ a.name }}</h1>
+      {%- if a.tagline %}
+      <p class="hero__tagline">{{ a.tagline | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+      {%- endif %}
+      {%- if now_job and now_job.period contains "Present" %}
+      <p class="hero__now"><span class="pulse" aria-hidden="true"></span>Now: {{ now_job.role }} at {{ now_job.company }}</p>
+      {%- endif %}
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#publications">View publications {% include icon.html name="arrow-down" %}</a>
+        <a class="btn btn--glass" href="mailto:{{ a.email }}">{% include icon.html name="mail" %}Email me</a>
+      </div>
+      <ul class="hero__social" aria-label="Profiles">
+        {%- for l in a.links %}
+        <li><a href="{{ l.url }}" aria-label="{{ l.name }}" title="{{ l.name }}">{% include icon.html name=l.icon %}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <figure class="hero__portrait">
+      <div class="portrait">
+        <img src="{{ a.avatar | relative_url }}" alt="Photo of {{ a.name }}" width="480" height="480">
+      </div>
+      <figcaption class="portrait__caption">{% include icon.html name="map-pin" %}{{ a.location }}</figcaption>
+    </figure>
+  </div>
+
+  {%- assign venues = pubs | map: "venue_short" | uniq %}
+  <div class="marquee" aria-label="Publication venues">
+    <div class="marquee__track">
+      {%- for round in (1..2) %}
+      <ul class="marquee__group"{% if round == 2 %} aria-hidden="true"{% endif %}>
+        {%- for rep in (1..2) %}
+        <li class="marquee__label">Published at</li>
+        {%- for v in venues %}{% if v and v != "arXiv" %}
+        <li>{{ v }}</li>
+        {%- endif %}{% endfor %}
+        {%- endfor %}
+      </ul>
       {%- endfor %}
-    </ul>
+    </div>
   </div>
 </section>
 
 <section class="section" id="about">
-  <h2 class="section__title">About</h2>
-  <div class="prose">
-    {{ content }}
+  <div class="container about">
+    <div class="about__main reveal">
+      <p class="eyebrow">About</p>
+      <h2 class="section-title">Hello, I'm <em>{{ a.name | split: " " | first }}.</em></h2>
+      <div class="prose about__prose">
+        {{ content }}
+      </div>
+    </div>
+    <aside class="glance spot reveal" aria-label="At a glance" style="--i: 1">
+      <dl>
+        <div><dt>Based in</dt><dd>{{ a.location }}</dd></div>
+        <div><dt>Affiliation</dt><dd><a href="{{ a.affiliation_url }}">{{ a.affiliation }}</a></dd></div>
+        {%- if a.advisor %}
+        <div><dt>Advisor</dt><dd><a href="{{ a.advisor.url }}">{{ a.advisor.name }}</a></dd></div>
+        {%- endif %}
+        {%- if now_job and now_job.period contains "Present" %}
+        <div><dt>Currently</dt><dd>{{ now_job.role }}, {{ now_job.company }}</dd></div>
+        {%- endif %}
+        <div><dt>Email</dt><dd><a href="mailto:{{ a.email }}">{{ a.email }}</a></dd></div>
+      </dl>
+    </aside>
   </div>
   {%- if page.interests %}
-  <h3 class="subhead">Research interests</h3>
-  <ul class="chips">
-    {%- for i in page.interests %}
-    <li>{{ i }}</li>
-    {%- endfor %}
-  </ul>
+  <div class="container interests reveal">
+    <h3 class="subhead">Research interests</h3>
+    <ul class="chips">
+      {%- for i in page.interests %}
+      <li{% if forloop.index <= 3 %} class="chip--core"{% endif %}>{{ i }}</li>
+      {%- endfor %}
+    </ul>
+  </div>
   {%- endif %}
 </section>
 
-<section class="section" id="publications">
-  <div class="section__head">
-    <h2 class="section__title">Publications</h2>
-    {%- assign scholar = a.links | where: "icon", "googlescholar" | first %}
-    {%- if scholar %}
-    <a class="section__aside" href="{{ scholar.url }}">{% include icon.html name="googlescholar" %}Google Scholar</a>
-    {%- endif %}
+{%- if site.data.research %}
+<section class="section section--alt" id="research">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">Research</p>
+      <h2 class="section-title">What I <em>work on</em></h2>
+      <p class="section-lead">Three directions, ordered from the core of my work outward.</p>
+    </header>
+    <div class="themes">
+      {%- for t in site.data.research %}
+      <article class="theme spot reveal" style="--i: {{ forloop.index0 | modulo: 3 }}">
+        <div class="theme__top">
+          <span class="theme__icon">{% include icon.html name=t.icon %}</span>
+          <span class="theme__num">0{{ forloop.index }}</span>
+        </div>
+        <h3 class="theme__title">{{ t.title }}</h3>
+        <p class="theme__summary">{{ t.summary }}</p>
+        <ul class="theme__papers">
+          {%- for slug in t.papers %}
+          {%- assign target = '/publication/' | append: slug | append: '/' %}
+          {%- assign tp = site.publications | where: "url", target | first %}
+          {%- if tp %}
+          <li><a href="{{ tp.url | relative_url }}"><span>{{ tp.short_name | default: tp.title }}</span><span class="theme__venue">{{ tp.venue_short }} {{ tp.date | date: '%Y' }}</span></a></li>
+          {%- endif %}
+          {%- endfor %}
+          {%- for x in t.extra %}
+          <li><a href="{{ x.url | relative_url }}"><span>{{ x.label }}</span><span class="theme__venue">{{ x.detail }}</span></a></li>
+          {%- endfor %}
+        </ul>
+      </article>
+      {%- endfor %}
+    </div>
   </div>
-  {%- assign pubs = site.publications | reverse %}
-  {%- assign years = pubs | group_by_exp: "p", "p.date | date: '%Y'" %}
-  {%- for y in years %}
-  <h3 class="pub-year">{{ y.name }}</h3>
-  <ol class="pubs">
-    {%- for p in y.items %}
-    {% include pub-item.html pub=p %}
-    {%- endfor %}
-  </ol>
-  {%- endfor %}
+</section>
+{%- endif %}
+
+<section class="section" id="publications">
+  <div class="container">
+    <header class="section-head section-head--row reveal">
+      <div>
+        <p class="eyebrow">Publications</p>
+        <h2 class="section-title">Papers &amp; <em>preprints</em></h2>
+      </div>
+      {%- if scholar %}
+      <a class="link-arrow" href="{{ scholar.url }}">Google Scholar {% include icon.html name="arrow-up-right" %}</a>
+      {%- endif %}
+    </header>
+    {%- assign years = pubs | group_by_exp: "p", "p.date | date: '%Y'" %}
+    {%- assign first_count = 0 %}
+    {%- for p in pubs %}{% assign lead = p.authors | slice: 0, 14 %}{% if lead == "**Jiaxing Li**" %}{% assign first_count = first_count | plus: 1 %}{% endif %}{% endfor %}
+    <div class="filters js-only reveal" role="group" aria-label="Filter publications">
+      <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All <span>{{ pubs.size }}</span></button>
+      <button class="filter" type="button" data-filter="first" aria-pressed="false">First author <span>{{ first_count }}</span></button>
+      {%- for y in years %}
+      <button class="filter" type="button" data-filter="{{ y.name }}" aria-pressed="false">{{ y.name }} <span>{{ y.items.size }}</span></button>
+      {%- endfor %}
+    </div>
+    <div class="pgrid">
+      {%- for p in pubs %}
+      {% include pub-card.html pub=p index=forloop.index0 %}
+      {%- endfor %}
+    </div>
+  </div>
 </section>
 
 {%- if site.data.experience and site.data.experience.size > 0 %}
-<section class="section" id="experience">
-  <h2 class="section__title">Experience</h2>
-  <ul class="timeline">
-    {%- for x in site.data.experience %}
-    <li>
-      <span class="timeline__date">{{ x.period }}</span>
-      <div>
-        <p class="timeline__title">{{ x.role }}</p>
-        <p class="timeline__org">{{ x.company }}{% if x.location %}, {{ x.location }}{% endif %}</p>
-        {%- if x.highlights %}
-        <ul class="timeline__points">
-          {%- for h in x.highlights %}
-          <li>{{ h | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
-          {%- endfor %}
-        </ul>
-        {%- endif %}
-      </div>
-    </li>
-    {%- endfor %}
-  </ul>
+<section class="section section--alt" id="experience">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">Experience</p>
+      <h2 class="section-title">Where I <em>work</em></h2>
+    </header>
+    <ol class="xp">
+      {%- for x in site.data.experience %}
+      <li class="xp__item reveal">
+        <div class="xp__rail" aria-hidden="true"><span class="xp__dot"></span></div>
+        <article class="xp__card spot">
+          <header class="xp__head">
+            <div>
+              <h3 class="xp__role">{{ x.role }}</h3>
+              <p class="xp__org">{% include icon.html name="briefcase" %}{{ x.company }}{% if x.location %} · {{ x.location }}{% endif %}</p>
+            </div>
+            <span class="xp__period">{{ x.period }}</span>
+          </header>
+          {%- if x.highlights %}
+          <ul class="xp__points">
+            {%- for h in x.highlights %}
+            <li>{{ h | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+          {%- if x.tags %}
+          <ul class="tags" aria-label="Topics">
+            {%- for t in x.tags %}
+            <li>{{ t }}</li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+        </article>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
 </section>
 {%- endif %}
 
 <section class="section" id="education">
-  <h2 class="section__title">Education</h2>
-  <ul class="timeline">
-    {%- for e in site.data.education %}
-    <li>
-      <span class="timeline__date">{{ e.period }}</span>
-      <div>
-        <p class="timeline__title">{{ e.degree }}</p>
-        <p class="timeline__org">{{ e.school }}</p>
-        {%- if e.note %}<p class="timeline__note">{{ e.note | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>{% endif %}
-      </div>
-    </li>
-    {%- endfor %}
-  </ul>
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">Education</p>
+      <h2 class="section-title">Where I <em>studied</em></h2>
+    </header>
+    <ol class="edu">
+      {%- for e in site.data.education %}
+      <li class="edu__card spot reveal" style="--i: {{ forloop.index0 | modulo: 3 }}">
+        <span class="edu__icon">{% include icon.html name="graduation-cap" %}</span>
+        <p class="edu__period">{{ e.period }}</p>
+        <h3 class="edu__degree">{{ e.degree }}</h3>
+        <p class="edu__school">{{ e.school }}</p>
+        {%- if e.note %}
+        <p class="edu__note">{{ e.note | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
 </section>
+
+<dialog class="bib-dialog" id="bib-dialog" aria-labelledby="bib-dialog-title">
+  <div class="bib-dialog__head">
+    <p class="eyebrow">BibTeX</p>
+    <h3 class="bib-dialog__title" id="bib-dialog-title"></h3>
+    <button class="icon-btn bib-dialog__close" type="button" data-close aria-label="Close">{% include icon.html name="x" %}</button>
+  </div>
+  <pre class="bib-dialog__code"><code id="bib-dialog-code"></code></pre>
+  <div class="bib-dialog__actions">
+    <button class="btn btn--primary" type="button" data-copy="bib-dialog-code">{% include icon.html name="copy" %}<span class="copy-btn__label">Copy BibTeX</span></button>
+  </div>
+</dialog>

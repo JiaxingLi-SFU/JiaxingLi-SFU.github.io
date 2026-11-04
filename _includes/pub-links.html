@@ -1,8 +1,7 @@
 {%- comment -%}
   Link buttons for a publication.
-  include.pub    the publication document
-  include.uid    unique id used to connect the BibTeX button to its panel
-  include.detail true on the publication's own page (shows DOI/DBLP/venue links instead of the BibTeX toggle)
+  include.pub     the publication document
+  include.detail  true on the publication's own page (adds DOI/DBLP/venue links; BibTeX is shown on the page itself)
 {%- endcomment -%}
 {%- assign p = include.pub -%}
 <ul class="links">
@@ -29,6 +28,6 @@
   <li><a href="{{ p.venueurl }}">Venue</a></li>
     {%- endif %}
   {%- elsif p.bibtex %}
-  <li class="js-only"><button type="button" data-bibtex-toggle aria-expanded="false" aria-controls="bib-{{ include.uid }}">{% include icon.html name="quote" %}BibTeX</button></li>
+  <li class="js-only"><button type="button" data-bibtex="{{ p.bibtex | strip | escape }}" data-title="{{ p.title | escape }}" data-href="{{ p.url | relative_url }}">{% include icon.html name="quote" %}BibTeX</button></li>
   {%- endif %}
 </ul>

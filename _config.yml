@@ -16,6 +16,11 @@ author:
   name: "Jiaxing Li"
   avatar: "/images/jiaxingli-avatar.jpg"
   position: "Ph.D. Student in Computing Science"
+  # One line under your name in the hero. Wrap a phrase in *asterisks* to highlight it.
+  tagline: "Building *LLM systems* that work across the cloud, the edge, and everything in between."
+  advisor:
+    name: "Prof. Jiangchuan Liu"
+    url: "https://www.cs.sfu.ca/~jcliu/"
   affiliation: "Simon Fraser University"
   affiliation_url: "https://www.sfu.ca/computing.html"
   location: "Vancouver, Canada"

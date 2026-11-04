@@ -3,10 +3,11 @@
   <head>
     {% include head.html %}
   </head>
-  <body>
+  <body class="layout-{{ page.layout | default: 'default' }}">
+    <span id="top"></span>
     <a class="skip-link" href="#main">Skip to content</a>
     {% include header.html %}
-    <main id="main" class="container">
+    <main id="main">
       {{ content }}
     </main>
     {% include footer.html %}

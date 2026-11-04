@@ -1,0 +1,23 @@
+# Research themes on the homepage, ordered from core to more peripheral.
+# `icon` is a name from _includes/icon.html.
+# `papers` lists publication slugs: the last part of each paper's permalink (/publication/<slug>/).
+# `extra` adds non-paper items (for example industry work).
+
+- title: "LLM Applications"
+  icon: "bot"
+  summary: "Making language models dependable in real deployments: semantic caching for chat services, retrieval-augmented generation, and agents that analyze attacks and act on live security devices."
+  papers: [scalm, eaco-rag, sustainable-wild-ijcai]
+  extra:
+    - label: "FortiDeceptor AI agent"
+      detail: "Fortinet"
+      url: "/#experience"
+
+- title: "Cloud/Edge Computing"
+  icon: "cloud"
+  summary: "Moving LLM services from the cloud toward the edge, so that small models on everyday devices approach cloud-level answers at a fraction of the cost."
+  papers: [defrag, eaco-rag, sustainable-wild-ijcai]
+
+- title: "Distributed Systems"
+  icon: "network"
+  summary: "Coordinating data and computation across independent sites and networks, from federated retrieval over sovereign data domains to live video analytics over satellite links."
+  papers: [defrag, fused, starstream, itsva]

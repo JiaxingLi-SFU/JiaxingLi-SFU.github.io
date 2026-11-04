@@ -8,8 +8,9 @@ Live site: <https://jiaxingli-sfu.github.io/>
 
 | What | Where |
 | --- | --- |
-| Name, photo, title, email, profile links | `_config.yml` → `author` |
+| Name, photo, title, tagline, advisor, email, profile links | `_config.yml` → `author` |
 | About text and research interests | `index.md` |
+| Research themes (the three cards) | `_data/research.yml` |
 | Experience | `_data/experience.yml` (section is hidden while the file is missing or empty) |
 | Education | `_data/education.yml` |
 | Publications | one Markdown file per paper in `_publications/` |
@@ -26,6 +27,7 @@ permalink: /publication/short-name/
 date: 2026-08-05
 venue: "Full Venue Name (ABBR)"
 venue_short: "ABBR"            # shown on the badge, e.g. "IJCAI"
+short_name: "SYSTEM"           # short name used in the research cards
 note: "Oral"                   # optional
 authors: "**Jiaxing Li**, Co-Author, and Advisor"
 excerpt: "One-sentence summary."
@@ -60,9 +62,9 @@ GitHub Pages builds and publishes the site from the `main` branch (**Settings �
 ## Structure
 
 - `_layouts/` — page templates (`home` for the homepage, `publication` for paper pages)
-- `_includes/` — header, footer, publication list items, icons
+- `_includes/` — header, footer, publication cards, icons
 - `assets/css/style.css` — all styles, including the dark theme
-- `assets/js/site.js` — dark mode toggle, BibTeX copy, active section highlight
-- `assets/fonts/` — self-hosted Inter and Source Serif 4 fonts
+- `assets/js/site.js` — the animated network in the header, dark mode toggle, publication filters, BibTeX dialog, scroll animations
+- `assets/fonts/` — self-hosted Inter, Instrument Serif and JetBrains Mono fonts
 
 Third-party fonts and icons are listed in `THIRD_PARTY_NOTICES.md`.

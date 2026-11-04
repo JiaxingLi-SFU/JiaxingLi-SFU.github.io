@@ -5,12 +5,13 @@ This site bundles the following third-party assets.
 ## Fonts
 
 - **Inter** — Copyright (c) 2016 The Inter Project Authors. SIL Open Font License 1.1. Full text: `assets/fonts/Inter-OFL.txt`.
-- **Source Serif 4** — Copyright 2014-2023 Adobe. SIL Open Font License 1.1. Full text: `assets/fonts/SourceSerif4-OFL.md`.
+- **Instrument Serif** — Copyright 2022 The Instrument Serif Project Authors. SIL Open Font License 1.1. Full text: `assets/fonts/InstrumentSerif-OFL.txt`.
+- **JetBrains Mono** — Copyright 2020 The JetBrains Mono Project Authors. SIL Open Font License 1.1. Full text: `assets/fonts/JetBrainsMono-OFL.txt`.
 
 ## Icons
 
 - **Simple Icons** (Google Scholar, DBLP, ORCID, GitHub, LinkedIn) — <https://simpleicons.org>, released under CC0 1.0 Universal. The brand marks remain trademarks of their owners.
-- **Lucide** (mail, map pin, sun, moon, and other interface icons) — <https://lucide.dev>, ISC License:
+- **Lucide** (mail, map pin, sun, moon, arrows, menu, and other interface icons) — <https://lucide.dev>, ISC License:
 
 ```
 ISC License

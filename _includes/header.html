@@ -1,16 +1,25 @@
-<header class="site-header">
-  <div class="site-header__inner">
-    <a class="site-header__brand" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
-    <nav class="site-nav" aria-label="Sections">
+<header class="nav" data-nav>
+  <div class="nav__inner">
+    <a class="nav__brand" href="{{ '/' | relative_url }}">
+      <span class="nav__mark" aria-hidden="true">JL</span>
+      <span>{{ site.author.name }}</span>
+    </a>
+    <nav class="nav__links" id="site-nav" aria-label="Sections">
       <a href="{{ '/#about' | relative_url }}">About</a>
+      <a href="{{ '/#research' | relative_url }}">Research</a>
       <a href="{{ '/#publications' | relative_url }}">Publications</a>
       {%- if site.data.experience and site.data.experience.size > 0 %}
       <a href="{{ '/#experience' | relative_url }}">Experience</a>
       {%- endif %}
       <a href="{{ '/#education' | relative_url }}">Education</a>
     </nav>
-    <button class="theme-toggle" type="button" aria-label="Switch between light and dark mode" title="Switch between light and dark mode">
-      {% include icon.html name="moon" %}{% include icon.html name="sun" %}
-    </button>
+    <div class="nav__actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Switch between light and dark mode" title="Switch between light and dark mode">
+        {% include icon.html name="moon" %}{% include icon.html name="sun" %}
+      </button>
+      <button class="icon-btn nav__menu js-only" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+        {% include icon.html name="menu" %}
+      </button>
+    </div>
   </div>
 </header>
