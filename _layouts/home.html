@@ -93,6 +93,24 @@ layout: default
     {%- endfor %}
   </section>
 
+  <section class="section" id="education" aria-labelledby="education-title">
+    <h2 class="section-title" id="education-title">Education</h2>
+    <ul class="timeline">
+      {%- for e in site.data.education %}
+      <li>
+        <span class="timeline__date">{{ e.period }}</span>
+        <div>
+          <h3 class="timeline__title">{{ e.degree }}</h3>
+          <p class="timeline__org">{{ e.school }}</p>
+          {%- if e.note %}
+          <p class="timeline__note">{{ e.note | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+          {%- endif %}
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+
   {%- if site.data.experience and site.data.experience.size > 0 %}
   <section class="section" id="experience" aria-labelledby="experience-title">
     <h2 class="section-title" id="experience-title">Experience</h2>
@@ -163,24 +181,6 @@ layout: default
     </ul>
   </section>
   {%- endif %}
-
-  <section class="section" id="education" aria-labelledby="education-title">
-    <h2 class="section-title" id="education-title">Education</h2>
-    <ul class="timeline">
-      {%- for e in site.data.education %}
-      <li>
-        <span class="timeline__date">{{ e.period }}</span>
-        <div>
-          <h3 class="timeline__title">{{ e.degree }}</h3>
-          <p class="timeline__org">{{ e.school }}</p>
-          {%- if e.note %}
-          <p class="timeline__note">{{ e.note | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
-          {%- endif %}
-        </div>
-      </li>
-      {%- endfor %}
-    </ul>
-  </section>
 </div>
 
 <dialog class="bib-dialog" id="bib-dialog" aria-labelledby="bib-dialog-title">
