@@ -14,7 +14,7 @@ Live site: <https://jiaxingli-sfu.github.io/>
 | Experience | `_data/experience.yml` (section is hidden while the file is missing or empty) |
 | Teaching | `_data/teaching.yml` |
 | Honors and awards (CV only; a paper award also shows as a badge via `award:` in the paper's file) | `_data/awards.yml` |
-| Academic service | `_data/service.yml` |
+| Academic service, in groups (program committees, conference and workshop reviewing, journal reviewing) | `_data/service.yml` |
 | Education (GPA appears only in the CV) | `_data/education.yml` |
 | Skills (CV only) | `_data/skills.yml` |
 | Publications | one Markdown file per paper in `_publications/` |

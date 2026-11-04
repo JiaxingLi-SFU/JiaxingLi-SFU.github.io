@@ -1,7 +1,22 @@
-# Academic service. Used on the homepage and in the CV.
+# Academic service, shown on the homepage and in the CV.
+# Each group has a label and its venues; list formal program committee roles under "Program Committees".
 
-- role: "Reviewer"
+- group: "Program Committees"
+  venues:
+    - "ACM SIGIR 2026"
+    - "The Web Conference (WWW) 2026, Web4Good Track"
+
+- group: "Conference & Workshop Reviewing"
   venues:
     - "IEEE INFOCOM 2025, 2026, 2027"
     - "ACM Multimedia (MM) 2025"
-    - "The Web Conference (WWW) 2025"
+    - "The Web Conference (WWW) 2025, 2027"
+    - "IEEE MASS 2026"
+    - "IEEE INFOCOM 2026 Workshop on Embodied Intelligence Networks (EIN)"
+
+- group: "Journal Reviewing"
+  venues:
+    - "IEEE Transactions on Mobile Computing (TMC)"
+    - "IEEE Transactions on Computers (TC)"
+    - "IEEE Journal of Selected Topics in Signal Processing (JSTSP)"
+    - "IEEE Network"

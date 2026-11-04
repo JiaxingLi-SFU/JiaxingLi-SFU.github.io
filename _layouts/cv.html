@@ -144,7 +144,7 @@
         <h2>Academic Service</h2>
         <ul class="rows">
           {%- for s in site.data.service %}
-          <li><span><strong>{{ s.role }}:</strong> {{ s.venues | join: "; " }}</span></li>
+          <li><span><strong>{{ s.group }}:</strong> {{ s.venues | join: "; " }}</span></li>
           {%- endfor %}
         </ul>
       </section>

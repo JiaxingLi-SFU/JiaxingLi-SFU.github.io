@@ -79,7 +79,7 @@ body {
   margin: 0;
   background: var(--desk);
   color: var(--ink);
-  font: 9.2pt/1.38 var(--font-sans);
+  font: 9.5pt/1.4 var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;

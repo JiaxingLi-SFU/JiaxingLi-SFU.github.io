@@ -192,9 +192,8 @@ html:not(.js) .js-only { display: none !important; }
   border-radius: 8px;
   background: var(--surface);
   color: var(--text);
-  box-shadow: var(--shadow);
 }
-.skip-link:focus { top: 12px; }
+.skip-link:focus { top: 12px; box-shadow: var(--shadow); }
 
 .icon-btn {
   display: inline-grid;
@@ -846,7 +845,8 @@ html:not(.js) .js-only { display: none !important; }
   .theme { grid-row: auto; grid-template-rows: none; display: block; }
 }
 
-@media (max-width: 820px) {
+/* The full menu needs about 860px; below 880px it folds into the menu button. */
+@media (max-width: 880px) {
   .js .nav-menu { display: inline-grid; }
   .js .site-nav {
     position: absolute;
@@ -865,6 +865,9 @@ html:not(.js) .js-only { display: none !important; }
   .js .site-header.is-open .site-nav { display: flex; }
   .js .site-nav a { padding: 10px 12px; }
   html:not(.js) .site-nav { overflow-x: auto; }
+}
+
+@media (max-width: 820px) {
   .pub { grid-template-columns: 150px minmax(0, 1fr); gap: 16px; }
 }
 
