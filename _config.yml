@@ -2,7 +2,7 @@
 # Restart `jekyll serve` after editing this file; it is not reloaded automatically.
 
 title: "Jiaxing Li"
-description: "Ph.D. student in Computing Science at Simon Fraser University, working on LLM systems, retrieval-augmented generation, live video analytics, and edge-cloud computing."
+description: "Ph.D. student in Computing Science at Simon Fraser University, working on LLM applications, cloud/edge computing, and distributed systems."
 url: "https://jiaxingli-sfu.github.io"
 baseurl: "/JiaxingLi_Personal_Page"
 repository: "JiaxingLi-SFU/JiaxingLi_Personal_Page"
@@ -31,9 +31,6 @@ author:
     - name: "ORCID"
       icon: "orcid"
       url: "https://orcid.org/0009-0006-4845-3270"
-    - name: "GitHub"
-      icon: "github"
-      url: "https://github.com/JiaxingLi-SFU"
     - name: "LinkedIn"
       icon: "linkedin"
       url: "https://www.linkedin.com/in/jiaxing-li-5b5b7924a"
