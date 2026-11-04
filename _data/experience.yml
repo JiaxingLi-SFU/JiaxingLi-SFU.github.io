@@ -14,7 +14,8 @@
     - "Turned a single request into an autonomous defense: the agent maps the live network, designs tailored decoys, including ones that mimic the targets of a spreading attack, reviews and revises its own plan, and deploys only after a human signs off."
 
 - period: "2024.05 – 2024.08"
-  role: "Large Language Model Algorithm Intern"
+  role: "Large Language Model Algorithm Engineer"
+  note: "Internship"
   company: "Jiangxing Intelligence"
   location: "Shenzhen, China"
   tags: ["LLM deployment", "Edge–cloud computing", "Bayesian optimization"]
