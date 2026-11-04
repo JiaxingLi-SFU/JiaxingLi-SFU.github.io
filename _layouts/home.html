@@ -19,6 +19,9 @@ layout: default
       {%- endif %}
       <ul class="profile__links" aria-label="Contact and profiles">
         <li><a href="mailto:{{ a.email }}">{% include icon.html name="mail" %}<span>Email</span></a></li>
+        {%- if a.cv %}
+        <li><a href="{{ a.cv | relative_url }}">{% include icon.html name="file-text" %}<span>CV</span></a></li>
+        {%- endif %}
         {%- for l in a.links %}
         <li><a href="{{ l.url }}">{% include icon.html name=l.icon %}<span>{{ l.name }}</span></a></li>
         {%- endfor %}
@@ -118,6 +121,61 @@ layout: default
             {%- endfor %}
           </ul>
           {%- endif %}
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+
+  {%- if site.data.teaching %}
+  <section class="section" id="teaching" aria-labelledby="teaching-title">
+    <h2 class="section-title" id="teaching-title">Teaching</h2>
+    <ul class="timeline">
+      {%- for t in site.data.teaching %}
+      <li>
+        <span class="timeline__date">{{ t.term }}</span>
+        <div>
+          <h3 class="timeline__title">{{ t.course }}</h3>
+          <p class="timeline__org">{{ t.role }}, {{ t.school }}</p>
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+
+  {%- if site.data.awards %}
+  <section class="section" id="awards" aria-labelledby="awards-title">
+    <h2 class="section-title" id="awards-title">Honors &amp; Awards</h2>
+    <ul class="timeline">
+      {%- for w in site.data.awards %}
+      <li>
+        <span class="timeline__date">{{ w.year }}</span>
+        <div>
+          <h3 class="timeline__title">{{ w.title }}</h3>
+          <p class="timeline__org">{{ w.org }}</p>
+          {%- if w.note %}<p class="timeline__note">{{ w.note }}</p>{% endif %}
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+
+  {%- if site.data.service %}
+  <section class="section" id="service" aria-labelledby="service-title">
+    <h2 class="section-title" id="service-title">Academic Service</h2>
+    <ul class="timeline">
+      {%- for s in site.data.service %}
+      <li>
+        <span class="timeline__date">{{ s.role }}</span>
+        <div>
+          <ul class="service-list">
+            {%- for v in s.venues %}
+            <li>{{ v }}</li>
+            {%- endfor %}
+          </ul>
         </div>
       </li>
       {%- endfor %}

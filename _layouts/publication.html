@@ -12,6 +12,7 @@ layout: default
     <header class="paper__header">
       <p class="pub__meta">
         <span class="badge{% if short == 'arXiv' %} badge--muted{% endif %}">{{ short }} {{ year }}</span>
+        {%- if p.award %}<span class="badge badge--award">{% include icon.html name="award" %}{{ p.award }}</span>{% endif %}
         {%- if p.note %}<span class="pub__note">{{ p.note }}</span>{% endif %}
       </p>
       <h1 class="paper__title">{{ p.title }}</h1>

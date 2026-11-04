@@ -12,7 +12,11 @@ Live site: <https://jiaxingli-sfu.github.io/>
 | About text and research interests | `index.md` |
 | Research themes (the three cards) | `_data/research.yml` |
 | Experience | `_data/experience.yml` (section is hidden while the file is missing or empty) |
-| Education | `_data/education.yml` |
+| Teaching | `_data/teaching.yml` |
+| Honors and awards | `_data/awards.yml` |
+| Academic service | `_data/service.yml` |
+| Education (GPA appears only in the CV) | `_data/education.yml` |
+| Skills (CV only) | `_data/skills.yml` |
 | Publications | one Markdown file per paper in `_publications/` |
 | Paper figures and slides | `resources/` |
 
@@ -43,6 +47,17 @@ bibtex: |
   }
 ---
 ```
+
+## CV
+
+The CV page (`/cv/`, layout `_layouts/cv.html`) is built from the same data files as the homepage, so updating a data file updates both. The PDF linked from the homepage, `resources/Jiaxing_Li_CV.pdf`, is printed from that page and has to be regenerated after changes:
+
+```bash
+bundle exec jekyll build
+node scripts/build-cv-pdf.js
+```
+
+The script needs Node.js and Playwright (`npm install playwright && npx playwright install chromium`). Without them, open `/cv/` in Chrome and use Print → Save as PDF with paper size Letter and default margins.
 
 ## Local preview
 

@@ -23,6 +23,7 @@ author:
   affiliation_url: "https://www.sfu.ca/computing.html"
   location: "Vancouver, Canada"
   email: "jla641@sfu.ca"
+  cv: "/resources/Jiaxing_Li_CV.pdf"
   # Profile links, shown in this order. Remove a line to hide that link.
   links:
     - name: "Google Scholar"
@@ -76,3 +77,4 @@ exclude:
   - .jekyll-cache
   - .sass-cache
   - node_modules
+  - scripts

@@ -1,5 +1,5 @@
-# Work experience, newest first. `highlights` support Markdown.
-# The Experience section and its nav link appear only when this file has entries.
+# Work experience, newest first. Used on the homepage and in the CV.
+# `highlights` support Markdown. The Experience section appears only when this file has entries.
 
 - period: "2025.12 – Present"
   role: "AI Researcher"
@@ -10,3 +10,20 @@
     - "Designed and built, end to end, an AI agent that lets security engineers run FortiDeceptor, Fortinet's cyber-deception product that traps attackers with decoy systems, through plain-language conversation: it investigates attacks, plans defenses, and deploys them on live devices."
     - "Made its attack analysis trustworthy at scale: the agent examines tens of thousands of attack records, far more than a language model can read at once, and reports exact, verifiable numbers instead of hallucinated ones."
     - "Turned a single request into an autonomous defense: the agent maps the live network, designs tailored decoys, including ones that mimic the targets of a spreading attack, reviews and revises its own plan, and deploys only after a human signs off."
+
+- period: "2024.05 – 2024.08"
+  role: "Large Language Model Algorithm Intern"
+  company: "Jiangxing Intelligence"
+  location: "Shenzhen, China"
+  tags: ["LLM deployment", "Edge–cloud computing", "Bayesian optimization"]
+  highlights:
+    - "Designed key components of AutoEdge, a system that automates the deployment and iterative fine-tuning of large language models on integrated edge–cloud platforms."
+    - "Built an online learning method based on Bayesian optimization that picks the most cost-effective cloud GPU instances (spot or on-demand) for model training, balancing compute cost, engineering schedules, and model quality for significant operational savings."
+
+- period: "2022.05 – 2023.05"
+  role: "Undergraduate Research Assistant"
+  company: "4D LABS"
+  location: "Burnaby, Canada"
+  highlights:
+    - "Developed the Smart pH Reader Android app, which turns smartphone camera images into quantitative pH measurements through color analysis, with accuracy comparable to laboratory equipment."
+    - "Validated the app in classroom experiments with more than 150 high school and undergraduate students; published as a first-author paper in the Journal of Chemical Education."

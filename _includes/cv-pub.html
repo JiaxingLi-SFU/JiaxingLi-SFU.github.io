@@ -1,0 +1,13 @@
+{%- comment -%} One publication in the CV. include.pub is a document from _publications/. {%- endcomment -%}
+{%- assign p = include.pub -%}
+{%- assign year = p.date | date: "%Y" -%}
+<li>
+  {{ p.authors | markdownify | remove: "<p>" | remove: "</p>" | strip }}.
+  <a class="pub-title" href="{{ p.url | absolute_url }}">&ldquo;{{ p.title }}.&rdquo;</a>
+  {%- if p.venue_short == "arXiv" %}
+  <em>arXiv preprint arXiv:{{ p.arxivurl | split: "/abs/" | last }}</em>, {{ year }}.
+  {%- else %}
+  <em>{{ p.venue }}</em>{% if p.note and p.note != "Preprint" %}{% unless p.note contains "oster" %}, {{ p.note }}{% endunless %}{% endif %}, {{ year }}.
+  {%- endif %}
+  {%- if p.award %} <strong class="award">{{ p.award }}</strong>{% endif %}
+</li>

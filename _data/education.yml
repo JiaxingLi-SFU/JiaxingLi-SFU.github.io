@@ -1,14 +1,16 @@
-# Education, newest first. `note` supports Markdown.
+# Education, newest first. `note` supports Markdown. `gpa` appears only in the CV.
 
 - period: "2023.09 – Present"
   degree: "Ph.D. in Computing Science"
   school: "Simon Fraser University, Vancouver, Canada"
   note: "Advisor: [Prof. Jiangchuan Liu](https://www.cs.sfu.ca/~jcliu/)"
+  gpa: "4.29/4.33"
 
 - period: "2020.01 – 2023.08"
-  degree: "Bachelor's Degree in Computing Science"
+  degree: "B.Sc. in Computing Science"
   school: "Simon Fraser University, Vancouver, Canada"
+  gpa: "3.71/4.33"
 
 - period: "2018.09 – 2019.12"
-  degree: "Bachelor of Science, Computer Science"
+  degree: "Transfer Program in Computing Science"
   school: "Fraser International College, Vancouver, Canada"

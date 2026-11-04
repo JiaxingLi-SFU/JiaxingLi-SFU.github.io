@@ -1,0 +1,166 @@
+<!doctype html>
+{%- comment -%}
+  Curriculum vitae, built from the same data as the homepage.
+  The PDF in resources/ is printed from this page: see scripts/build-cv-pdf.js.
+{%- endcomment -%}
+{%- assign a = site.author -%}
+{%- assign scholar = a.links | where: "icon", "googlescholar" | first -%}
+{%- assign linkedin = a.links | where: "icon", "linkedin" | first -%}
+{%- assign pubs = site.publications | reverse -%}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ a.name }} - Curriculum Vitae</title>
+    <meta name="description" content="Curriculum vitae of {{ a.name }}, {{ a.position }} at {{ a.affiliation }}.">
+    <meta name="author" content="{{ a.name }}">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="icon" href="{{ '/images/favicon.svg' | relative_url }}" type="image/svg+xml">
+    <link rel="stylesheet" href="{{ '/assets/css/cv.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  </head>
+  <body>
+    <nav class="cv-toolbar" aria-label="CV">
+      <a href="{{ '/' | relative_url }}">&larr; Homepage</a>
+      {%- if a.cv %}
+      <a href="{{ a.cv | relative_url }}">Download PDF</a>
+      {%- endif %}
+    </nav>
+
+    <main class="cv">
+      <header class="cv-head">
+        <h1>{{ a.name }}</h1>
+        <p class="cv-head__role">{{ a.position }} · {{ a.affiliation }} · {{ a.location }}</p>
+        <p class="cv-head__contact">
+          <a href="mailto:{{ a.email }}">{{ a.email }}</a>
+          <span aria-hidden="true">·</span>
+          <a href="{{ '/' | absolute_url }}">{{ site.url | remove: "https://" | remove: "http://" }}</a>
+          {%- if scholar %}
+          <span aria-hidden="true">·</span>
+          <a href="{{ scholar.url }}">Google Scholar</a>
+          {%- endif %}
+          {%- if linkedin %}
+          <span aria-hidden="true">·</span>
+          <a href="{{ linkedin.url }}">LinkedIn</a>
+          {%- endif %}
+        </p>
+      </header>
+
+      {%- if site.data.research %}
+      <section>
+        <h2>Research Interests</h2>
+        <p>{{ site.data.research | map: "title" | join: ", " }}</p>
+      </section>
+      {%- endif %}
+
+      <section>
+        <h2>Education</h2>
+        {%- for e in site.data.education %}
+        {%- assign parts = e.school | split: ", " %}
+        <div class="entry">
+          <p class="entry__head"><span><strong>{{ parts | first }}</strong>{% if parts.size > 1 %}, {{ parts | shift | join: ", " }}{% endif %}</span><span class="entry__date">{{ e.period }}</span></p>
+          <p class="entry__sub">{{ e.degree }}{% if e.gpa %} · GPA {{ e.gpa }}{% endif %}</p>
+          {%- if e.note %}<p class="entry__sub">{{ e.note | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>{% endif %}
+        </div>
+        {%- endfor %}
+      </section>
+
+      <section class="cv-pubs">
+        <h2>Publications</h2>
+        <h3>Journal and Conference Papers</h3>
+        <ol class="pubs">
+          {%- for p in pubs %}
+          {%- if p.venue_short == "arXiv" or p.note contains "oster" %}{% continue %}{% endif %}
+          {% include cv-pub.html pub=p %}
+          {%- endfor %}
+        </ol>
+        <h3>Preprints</h3>
+        <ol class="pubs">
+          {%- for p in pubs %}
+          {%- if p.venue_short == "arXiv" %}
+          {% include cv-pub.html pub=p %}
+          {%- endif %}
+          {%- endfor %}
+        </ol>
+        <h3>Posters</h3>
+        <ol class="pubs">
+          {%- for p in pubs %}
+          {%- if p.note contains "oster" %}
+          {% include cv-pub.html pub=p %}
+          {%- endif %}
+          {%- endfor %}
+        </ol>
+      </section>
+
+      {%- if site.data.experience %}
+      <section>
+        <h2>Experience</h2>
+        {%- for x in site.data.experience %}
+        <div class="entry">
+          <p class="entry__head"><span><strong>{{ x.company }}</strong>, {{ x.location }}</span><span class="entry__date">{{ x.period }}</span></p>
+          <p class="entry__sub"><em>{{ x.role }}</em></p>
+          {%- if x.highlights %}
+          <ul class="bullets">
+            {%- for h in x.highlights %}
+            <li>{{ h | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+        </div>
+        {%- endfor %}
+      </section>
+      {%- endif %}
+
+      {%- if site.data.teaching %}
+      <section>
+        <h2>Teaching</h2>
+        {%- assign groups = site.data.teaching | group_by_exp: "t", "t.role | append: ', ' | append: t.school" %}
+        {%- for g in groups %}
+        <div class="entry">
+          <p class="entry__head"><strong>{{ g.name }}</strong></p>
+          <ul class="rows">
+            {%- for t in g.items %}
+            <li><span>{{ t.course }}</span><span class="entry__date">{{ t.term }}</span></li>
+            {%- endfor %}
+          </ul>
+        </div>
+        {%- endfor %}
+      </section>
+      {%- endif %}
+
+      {%- if site.data.awards %}
+      <section>
+        <h2>Honors and Awards</h2>
+        <ul class="rows">
+          {%- for w in site.data.awards %}
+          <li><span><strong>{{ w.title }}</strong>, {{ w.org }}{% if w.note %} ({{ w.note }}){% endif %}</span><span class="entry__date">{{ w.year }}</span></li>
+          {%- endfor %}
+        </ul>
+      </section>
+      {%- endif %}
+
+      {%- if site.data.service %}
+      <section>
+        <h2>Academic Service</h2>
+        <ul class="rows">
+          {%- for s in site.data.service %}
+          <li><span><strong>{{ s.role }}:</strong> {{ s.venues | join: "; " }}</span></li>
+          {%- endfor %}
+        </ul>
+      </section>
+      {%- endif %}
+
+      {%- if site.data.skills %}
+      <section>
+        <h2>Skills</h2>
+        <ul class="rows">
+          {%- for k in site.data.skills %}
+          <li><span><strong>{{ k.label }}:</strong> {{ k.items }}</span></li>
+          {%- endfor %}
+        </ul>
+      </section>
+      {%- endif %}
+
+      <p class="cv-updated">Last updated {{ site.time | date: "%B %Y" }}</p>
+    </main>
+  </body>
+</html>

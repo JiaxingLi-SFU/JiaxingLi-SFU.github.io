@@ -16,6 +16,7 @@
   <div class="pub__body">
     <p class="pub__meta">
       <span class="badge{% if short == 'arXiv' %} badge--muted{% endif %}">{{ short }} {{ year }}</span>
+      {%- if p.award %}<span class="badge badge--award">{% include icon.html name="award" %}{{ p.award }}</span>{% endif %}
       {%- if p.note %}<span class="pub__note">{{ p.note }}</span>{% endif %}
     </p>
     <h4 class="pub__title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h4>

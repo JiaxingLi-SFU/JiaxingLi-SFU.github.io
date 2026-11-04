@@ -10,7 +10,13 @@
       {%- if site.data.experience and site.data.experience.size > 0 %}
       <a href="{{ '/#experience' | relative_url }}">Experience</a>
       {%- endif %}
+      {%- if site.data.teaching %}
+      <a href="{{ '/#teaching' | relative_url }}">Teaching</a>
+      {%- endif %}
       <a href="{{ '/#education' | relative_url }}">Education</a>
+      {%- if site.author.cv %}
+      <a href="{{ site.author.cv | relative_url }}">CV</a>
+      {%- endif %}
     </nav>
     <div class="site-header__actions">
       <button class="icon-btn theme-toggle" type="button" aria-label="Switch between light and dark mode" title="Switch between light and dark mode">
