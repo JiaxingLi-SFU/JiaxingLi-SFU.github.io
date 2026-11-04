@@ -2,7 +2,7 @@
 # Restart `jekyll serve` after editing this file; it is not reloaded automatically.
 
 title: "Jiaxing Li"
-description: "Ph.D. student in Computing Science at Simon Fraser University, working on LLM applications, cloud/edge computing, and distributed systems."
+description: "Ph.D. candidate in Computing Science at Simon Fraser University, working on LLM applications, cloud/edge computing, and distributed systems."
 url: "https://jiaxingli-sfu.github.io"
 baseurl: ""
 repository: "JiaxingLi-SFU/JiaxingLi-SFU.github.io"
@@ -15,9 +15,7 @@ theme: null
 author:
   name: "Jiaxing Li"
   avatar: "/images/jiaxingli-avatar.jpg"
-  position: "Ph.D. Student in Computing Science"
-  # One line under your name in the hero. Wrap a phrase in *asterisks* to highlight it.
-  tagline: "Building *LLM systems* that work across the cloud, the edge, and everything in between."
+  position: "Ph.D. Candidate in Computing Science"
   advisor:
     name: "Prof. Jiangchuan Liu"
     url: "https://www.cs.sfu.ca/~jcliu/"

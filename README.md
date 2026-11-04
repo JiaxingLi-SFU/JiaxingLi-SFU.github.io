@@ -8,7 +8,7 @@ Live site: <https://jiaxingli-sfu.github.io/>
 
 | What | Where |
 | --- | --- |
-| Name, photo, title, tagline, advisor, email, profile links | `_config.yml` → `author` |
+| Name, photo, title, advisor, email, profile links | `_config.yml` → `author` |
 | About text and research interests | `index.md` |
 | Research themes (the three cards) | `_data/research.yml` |
 | Experience | `_data/experience.yml` (section is hidden while the file is missing or empty) |
@@ -62,9 +62,9 @@ GitHub Pages builds and publishes the site from the `main` branch (**Settings �
 ## Structure
 
 - `_layouts/` — page templates (`home` for the homepage, `publication` for paper pages)
-- `_includes/` — header, footer, publication cards, icons
+- `_includes/` — header, footer, publication list items, icons
 - `assets/css/style.css` — all styles, including the dark theme
-- `assets/js/site.js` — the animated network in the header, dark mode toggle, publication filters, BibTeX dialog, scroll animations
-- `assets/fonts/` — self-hosted Inter, Instrument Serif and JetBrains Mono fonts
+- `assets/js/site.js` — dark mode toggle, mobile menu, publication filter, BibTeX dialog
+- `assets/fonts/` — self-hosted Inter and Source Serif 4 fonts
 
 Third-party fonts and icons are listed in `THIRD_PARTY_NOTICES.md`.

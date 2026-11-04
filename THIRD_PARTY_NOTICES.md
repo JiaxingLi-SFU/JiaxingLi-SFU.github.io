@@ -5,8 +5,7 @@ This site bundles the following third-party assets.
 ## Fonts
 
 - **Inter** — Copyright (c) 2016 The Inter Project Authors. SIL Open Font License 1.1. Full text: `assets/fonts/Inter-OFL.txt`.
-- **Instrument Serif** — Copyright 2022 The Instrument Serif Project Authors. SIL Open Font License 1.1. Full text: `assets/fonts/InstrumentSerif-OFL.txt`.
-- **JetBrains Mono** — Copyright 2020 The JetBrains Mono Project Authors. SIL Open Font License 1.1. Full text: `assets/fonts/JetBrainsMono-OFL.txt`.
+- **Source Serif 4** — Copyright 2014-2023 Adobe. SIL Open Font License 1.1. Full text: `assets/fonts/SourceSerif4-OFL.md`.
 
 ## Icons
 
